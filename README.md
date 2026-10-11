@@ -6,7 +6,7 @@ Static site served by Cloudflare Workers (static assets). Everything lives in `p
 - **Hero photo:** `public/images/hero.jpg` (square LinkedIn photo, cropped to 4:5 by CSS).
 - **Placeholders:** none left.
 - **Logo:** `public/images/architect-mark.svg` (nav + favicon). Gold-to-navy gradient stroke, top-left to bottom-right.
-- `og:image` should become an absolute URL once there is a domain.
+- `og:image` uses the absolute URL https://www.nastasjaterry.com/images/hero.jpg.
 
 ## Preview locally
 ```
