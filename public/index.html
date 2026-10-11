@@ -53,7 +53,7 @@
   .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
 
   /* photo placeholder — swap for <img src="/images/hero.jpg"> */
-  .photo{position:relative;aspect-ratio:4/5;border:1px dashed var(--blue-lt);background:var(--bg2);
+  .photo{position:relative;aspect-ratio:4/5;border:1px solid var(--line);background:var(--bg2);
          display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px}
   .photo::after{content:"";position:absolute;inset:14px;border:1px solid var(--line);pointer-events:none}
   .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
@@ -135,11 +135,7 @@
         </div>
       </div>
       <div class="photo">
-        <!-- HERO PHOTO: save your photo as public/images/hero.jpg, then delete the three placeholder lines below and uncomment the <img>. -->
-        <!-- <img src="images/hero.jpg" alt="Nastasja Terry"> -->
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#6AA0FF" stroke-width="1.2" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
-        <span class="mono">Hero photo</span>
-        <small>Your portrait goes here — 4:5, at least 1200×1500px</small>
+        <img src="images/hero.jpg" alt="Nastasja Terry" style="object-position:40% 30%">
       </div>
     </div>
   </div>
