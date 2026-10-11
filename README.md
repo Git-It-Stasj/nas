@@ -4,7 +4,7 @@ Static site served by Cloudflare Workers (static assets). Everything lives in `p
 
 ## Edit
 - **Hero photo:** save as `public/images/hero.jpg`, uncomment the `<img>` in `public/index.html` and delete the placeholder text.
-- **Placeholders to fill:** booking email (`mailto:booking@example.com`) and LinkedIn URL.
+- **Placeholders to fill:** none left except the hero photo.
 - **Logo:** `public/images/architect-mark.svg` (nav + favicon). Gold-to-navy gradient stroke, top-left to bottom-right.
 - `og:image` should become an absolute URL once there is a domain.
 
