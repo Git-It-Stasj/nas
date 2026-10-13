@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  /* Apply the saved theme before first paint so there is no flash. This page's designed default is dark. */
+  (function(){var t=null;try{t=localStorage.getItem('nt-theme')}catch(e){}
+  if(t!=='light'&&t!=='dark'){t='dark'}
+  document.documentElement.setAttribute('data-theme',t)})();
+</script>
+<title>Nastasja Terry — AI Speaker, Engineer & Founder</title>
+<meta name="description" content="Nastasja Terry is an aerospace engineer turned AI consultant, speaker and founder. Book her to speak on practical, responsible AI adoption.">
+<meta property="og:title" content="Nastasja Terry — AI Speaker, Engineer & Founder">
+<meta property="og:description" content="Seventeen years in aerospace. Now building how people actually work with AI.">
+<meta property="og:image" content="/images/hero.jpg">
+<link rel="icon" type="image/svg+xml" href="images/architect-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&family=Josefin+Sans:wght@200&family=Plus+Jakarta+Sans:wght@700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#070D1F; --bg2:#0D1530; --gold:#F0C040; --blue:#3D7FFF;
+    --blue-lt:#6AA0FF; --text:#E8EEFF; --muted:#9FB0D8; --line:rgba(106,160,255,.18);
+    --on-gold:#070D1F; --gold-text:#F0C040; --header-bg:rgba(7,13,31,.86);
+    color-scheme:dark;
+  }
+  /* Light variant (same palette family as the nutrition page) */
+  :root[data-theme="light"]{
+    --bg:#F6F8FD; --bg2:#FFFFFF; --blue:#2A63D8;
+    --blue-lt:#2A63D8; --text:#0E1630; --muted:#4B5A7C; --line:rgba(7,13,31,.12);
+    --gold-text:#7A5A00; --header-bg:rgba(246,248,253,.9);
+    color-scheme:light;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font:400 17px/1.7 "DM Sans",system-ui,sans-serif;
+       -webkit-font-smoothing:antialiased}
+  a{color:var(--blue-lt)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-lt)}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:5;background:var(--header-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .mark{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+  .mark span{font:200 1.15rem "Josefin Sans",sans-serif;letter-spacing:.06em;text-transform:lowercase}
+  .nav nav{display:flex;gap:28px;align-items:center}
+  .nav nav a{color:var(--muted);text-decoration:none;font-size:.95rem}
+  .nav nav a:hover{color:var(--text)}
+  .btn{display:inline-block;font:700 .95rem "Plus Jakarta Sans",sans-serif;text-decoration:none;
+       padding:14px 26px;border-radius:2px;transition:transform .15s ease, background .15s ease}
+  .btn-gold{background:var(--gold);color:var(--on-gold)}
+  .btn-gold:hover{transform:translateY(-1px)}
+  .btn-ghost{border:1px solid var(--line);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--blue-lt)}
+  .nav .btn{padding:10px 18px;font-size:.85rem}
+  .nav nav a.btn-gold,.nav nav a.btn-gold:hover{color:var(--on-gold)}
+
+  /* theme toggle */
+  .theme-toggle{appearance:none;background:transparent;border:1px solid var(--line);color:var(--muted);width:40px;height:40px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:none;transition:color .15s,border-color .15s}
+  .theme-toggle:hover{color:var(--text);border-color:var(--blue-lt)}
+  .theme-toggle:focus-visible{outline:2px solid var(--blue-lt);outline-offset:2px}
+  .theme-toggle svg{width:18px;height:18px}
+  :root[data-theme="light"] .icon-sun,:root:not([data-theme="light"]) .icon-moon{display:none}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;padding:96px 0 104px}
+  .hero::before{content:"";position:absolute;inset:0;
+     background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+     background-size:56px 56px;mask-image:radial-gradient(ellipse at 70% 40%,#000 0%,transparent 70%);opacity:.5}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+  h1{font:600 clamp(2.6rem,6vw,4.6rem)/1.04 "Space Grotesk",sans-serif;letter-spacing:-.02em;margin:18px 0 22px}
+  .lede{font-size:1.2rem;color:var(--muted);max-width:34ch}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:36px}
+
+  /* hero photo frame */
+  .photo{position:relative;aspect-ratio:4/5;border:1px dashed var(--blue-lt);background:var(--bg2);
+         display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px}
+  .photo::after{content:"";position:absolute;inset:14px;border:1px solid var(--line);pointer-events:none}
+  .photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .photo.has-img{border:1px solid var(--line);padding:0;overflow:hidden}
+  .photo.has-img::after{border-color:rgba(255,255,255,.4)}
+  .photo.has-img img{object-position:50% 40%}
+  .photo svg{color:var(--blue-lt)}
+  .photo small{color:var(--muted);font-size:.85rem;max-width:22ch}
+
+  section{padding:96px 0;border-top:1px solid var(--line)}
+  h2{font:600 clamp(1.8rem,3.4vw,2.6rem)/1.15 "Space Grotesk",sans-serif;letter-spacing:-.01em;margin:14px 0 28px}
+
+  /* bio */
+  .bio{background:var(--bg2)}
+  .bio-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px}
+  .bio p{font-size:1.15rem;line-height:1.8}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:48px}
+  .stat{background:var(--bg2);padding:24px}
+  .stat b{display:block;font:400 1.9rem "JetBrains Mono",monospace;color:var(--text)}
+  .stat span{color:var(--muted);font-size:.9rem}
+
+  /* talks */
+  .talks{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .talk{border:1px solid var(--line);padding:32px;background:linear-gradient(180deg,var(--bg2),var(--bg))}
+  .talk h3{font:700 1.2rem/1.3 "Space Grotesk",sans-serif;margin:12px 0}
+  .talk p{color:var(--muted);font-size:.98rem}
+
+  /* ventures */
+  .ventures{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .venture{border-left:2px solid var(--blue);padding:4px 0 4px 24px}
+  .venture h3{font:700 1.15rem "Space Grotesk",sans-serif;margin-bottom:6px}
+  .venture p{color:var(--muted)}
+
+  /* cta */
+  .cta{text-align:center;background:var(--bg2)}
+  .cta h2{max-width:20ch;margin:14px auto 18px}
+  .cta p{color:var(--muted);max-width:52ch;margin:0 auto 36px}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:.9rem}
+  .foot{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center}
+  .foot > :first-child{justify-self:start}
+  .foot > :last-child{justify-self:end}
+  .foot .tagline{justify-self:center;text-align:center}
+  .tagline{font:200 1.1rem "Josefin Sans",sans-serif;letter-spacing:.12em;text-transform:lowercase;color:var(--blue-lt)}
+  .hero .tagline{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:28px;color:var(--gold-text);font-size:1.35rem;text-align:center}
+  .hero .tagline::before,.hero .tagline::after{content:"";flex:1;max-width:120px;height:1px;background:var(--gold-text)}
+  @media (max-width:420px){.hero .tagline{font-size:1.1rem;gap:10px}}
+
+  @media (max-width:860px){
+    .nav nav a:not(.btn){display:none}
+    .nav nav{gap:14px}
+    .hero{padding:56px 0 72px}
+    .hero-grid,.bio-grid{grid-template-columns:1fr;gap:40px}
+    .photo{max-width:420px;width:100%;margin:0 auto}
+    .talks,.ventures{grid-template-columns:1fr}
+    .stats{grid-template-columns:1fr}
+    section{padding:72px 0}
+    .foot{grid-template-columns:1fr;justify-items:center;text-align:center;gap:14px}
+    .foot > :first-child,.foot > :last-child{justify-self:center}
+  }
+  @media (max-width:420px){ .wrap{padding:0 16px} .mark span{display:none} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="mark" href="#top" aria-label="Nastasja Terry home">
+      <img src="images/architect-mark.svg" width="34" height="34" alt="">
+      <span>nastasja terry</span>
+    </a>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#speaking">Speaking</a>
+      <a href="#work">Work</a>
+      <button class="theme-toggle" type="button" id="themeToggle" aria-label="Switch to light mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="btn btn-gold" href="#book">Book me</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="mono">Aerospace Engineer · AI Strategist · Speaker</p>
+        <h1>I build the bond between people and AI — and I build it to hold.</h1>
+        <p class="lede">Seventeen years certifying aircraft taught me one thing: nothing flies without a framework. I bring that same rigor to the stage, so your audience leaves with AI they can actually use.</p>
+        <p class="tagline">Stay Vigilant. Stay Visionary.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-gold" href="#book">Book me to speak</a>
+          <a class="btn btn-ghost" href="#speaking">See my talks</a>
+        </div>
+      </div>
+      <div class="photo has-img">
+        <img src="images/hero.jpg" width="800" height="800" alt="Nastasja Terry" fetchpriority="high">
+      </div>
+    </div>
+  </div>
+
+  <!-- BIO -->
+  <section class="bio" id="about">
+    <div class="wrap bio-grid">
+      <div>
+        <p class="mono">About</p>
+        <h2>Engineer first. Teacher always.</h2>
+      </div>
+      <div>
+        <p>I'm Nastasja Terry, and I've spent my career joining things that don't naturally belong together and making the bond outlast the pressure. For more than seventeen years I've worked in aerospace — quality assurance, FAA certification, aftermarket engineering, and training technical teams on the 787 and A350 across more than ten countries. Then I watched AI get handed to people with no framework for how to use it, and I decided to build one. Today I lead The Architect, where I advise leaders and speak on practical, responsible AI adoption, and I founded SheForge, an AI app suite I engineered for women entrepreneurs. I teach the way I was trained: strategy first, then tools you can put to work on Monday morning.</p>
+        <div class="stats">
+          <div class="stat"><b>17+</b><span>years in aerospace engineering</span></div>
+          <div class="stat"><b>10+</b><span>countries trained on 787 &amp; A350</span></div>
+          <div class="stat"><b>Monthly</b><span>stages &amp; panels on AI</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPEAKING -->
+  <section id="speaking">
+    <div class="wrap">
+      <p class="mono">Speaking</p>
+      <h2>Talks that leave a framework behind.</h2>
+      <div class="talks">
+        <article class="talk">
+          <p class="mono">Keynote</p>
+          <h3>Certified to Fly: What Aerospace Can Teach Us About Trusting AI</h3>
+          <p>How the discipline behind aircraft certification translates into adopting AI responsibly — without slowing your people down.</p>
+        </article>
+        <article class="talk">
+          <p class="mono">Workshop</p>
+          <h3>The TIGER Framework™</h3>
+          <p>A hands-on session that takes teams from "we should use AI" to working use cases they own, in a single sitting.</p>
+        </article>
+        <article class="talk">
+          <p class="mono">Keynote · Panel</p>
+          <h3>Brazing: Joining AI and Lived Experience</h3>
+          <p>Why the strongest AI results come from fusing tools with what your people already know — not replacing it.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section id="work">
+    <div class="wrap">
+      <p class="mono">Work</p>
+      <h2>What I'm building.</h2>
+      <div class="ventures">
+        <div class="venture"><h3>The Architect</h3><p>AI consulting, readiness assessments and speaking for leaders who want strategy before software.</p></div>
+        <div class="venture"><h3>SheForge</h3><p>A suite of AI apps I designed and built for women entrepreneurs. <a href="https://sheforge.ai" rel="noopener">sheforge.ai →</a></p></div>
+        <div class="venture"><h3>Dream Intelligence</h3><p>A method for turning subconscious insight into speaker stories, ideas and content.</p></div>
+        <div class="venture"><h3><em>Revelations of an Architect</em></h3><p>My book, in progress — blueprints to becoming.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="book">
+    <div class="wrap">
+      <p class="mono">Book me</p>
+      <h2>Bring a framework to your next stage.</h2>
+      <p>Keynotes, workshops and panels for conferences, leadership teams and associations. Tell me about your audience and your date, and I'll come back to you within two business days.</p>
+      <!-- REPLACE: swap the email below for your booking address -->
+      <a class="btn btn-gold" href="mailto:booking@example.com?subject=Speaking%20inquiry">Request a date</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Nastasja Terry · San Diego, CA</span>
+    <span class="tagline">Stay Vigilant. Stay Visionary.</span>
+    <!-- REPLACE: add your LinkedIn profile URL -->
+    <a href="https://www.linkedin.com/" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  /* Theme toggle: saves the visitor's choice for both pages (falls back quietly if storage is blocked). */
+  (function(){
+    var r=document.documentElement,b=document.getElementById('themeToggle');
+    function sync(){b.setAttribute('aria-label',r.getAttribute('data-theme')==='dark'?'Switch to light mode':'Switch to dark mode')}
+    b.addEventListener('click',function(){
+      var n=r.getAttribute('data-theme')==='dark'?'light':'dark';
+      r.setAttribute('data-theme',n);
+      try{localStorage.setItem('nt-theme',n)}catch(e){}
+      sync();
+    });
+    sync();
+  })();
+</script>
+
+</body>
+</html>
