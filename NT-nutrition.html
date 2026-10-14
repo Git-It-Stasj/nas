@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  /* Apply the saved theme before first paint. With no saved choice this page follows the visitor's device setting (light by design otherwise). */
+  (function(){var t=null;try{t=localStorage.getItem('nt-theme')}catch(e){}
+  if(t!=='light'&&t!=='dark'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'}
+  document.documentElement.setAttribute('data-theme',t)})();
+</script>
+<title>GLP-1 Nutrition Research — Nastasja Terry</title>
+<meta name="description" content="What peer-reviewed research says about muscle, appetite and nutrient gaps on GLP-1 medications. Every claim linked to its source.">
+<meta property="og:title" content="Eating well on a GLP-1 — what the research says">
+<meta property="og:description" content="Muscle preservation, eating on low appetite and nutrient gaps, with every claim linked to its source.">
+<meta property="og:image" content="/images/hero.jpg">
+<link rel="icon" type="image/svg+xml" href="images/architect-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&family=Josefin+Sans:wght@200&family=Plus+Jakarta+Sans:wght@700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  /* Light "clinical" variant of The Architect: same navy, gold, fonts and layout; white and pale-blue surfaces. */
+  :root{
+    --bg:#F6F8FD; --surface:#FFFFFF; --head:#070D1F; --on-gold:#070D1F;
+    --gold:#F0C040; --blue:#2A63D8; --blue-soft:#E8EFFD; --blue-line:rgba(42,99,216,.2);
+    --ink:#0E1630; --muted:#4B5A7C; --line:rgba(7,13,31,.12);
+    --band:#070D1F; --header-bg:rgba(246,248,253,.9); --grid:rgba(42,99,216,.09);
+    --hero-grad:linear-gradient(180deg,#FFFFFF 0%,#F6F8FD 100%);
+    color-scheme:light;
+  }
+  /* Dark variant: the full Architect navy */
+  :root[data-theme="dark"]{
+    --bg:#070D1F; --surface:#0D1530; --head:#F2F5FF;
+    --blue:#6AA0FF; --blue-soft:rgba(61,127,255,.14); --blue-line:rgba(106,160,255,.28);
+    --ink:#E8EEFF; --muted:#9FB0D8; --line:rgba(106,160,255,.18);
+    --band:#121C44; --header-bg:rgba(7,13,31,.86); --grid:rgba(106,160,255,.14);
+    --hero-grad:linear-gradient(180deg,#0D1530 0%,#070D1F 100%);
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font:400 17px/1.7 "DM Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--blue)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+  sup{font-size:.7em;line-height:0}
+  sup a{text-decoration:none;font-family:"JetBrains Mono",monospace;font-weight:400;padding:0 1px}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:5;background:var(--header-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .mark{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--head)}
+  .mark span{font:200 1.15rem "Josefin Sans",sans-serif;letter-spacing:.06em;text-transform:lowercase}
+  .nav nav{display:flex;gap:28px;align-items:center}
+  .nav nav a{color:var(--muted);text-decoration:none;font-size:.95rem}
+  .nav nav a:hover{color:var(--head)}
+  .btn{display:inline-block;font:700 .95rem "Plus Jakarta Sans",sans-serif;text-decoration:none;padding:14px 26px;border-radius:2px;transition:transform .15s ease}
+  .btn-gold{background:var(--gold);color:var(--on-gold)}
+  .btn-gold:hover{transform:translateY(-1px)}
+  .btn-ghost{border:1px solid var(--line);color:var(--head);background:var(--surface)}
+  .btn-ghost:hover{border-color:var(--blue)}
+  .nav .btn{padding:10px 18px;font-size:.85rem}
+  .nav nav a.btn-gold,.nav nav a.btn-gold:hover{color:var(--on-gold)}
+
+  /* theme toggle */
+  .theme-toggle{appearance:none;background:transparent;border:1px solid var(--line);color:var(--muted);width:40px;height:40px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:none;transition:color .15s,border-color .15s}
+  .theme-toggle:hover{color:var(--ink);border-color:var(--blue)}
+  .theme-toggle:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+  .theme-toggle svg{width:18px;height:18px}
+  :root[data-theme="dark"] .icon-moon,:root:not([data-theme="dark"]) .icon-sun{display:none}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;padding:88px 0 80px;background:var(--hero-grad)}
+  .hero::before{content:"";position:absolute;inset:0;
+    background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+    background-size:56px 56px;mask-image:radial-gradient(ellipse at 75% 30%,#000 0%,transparent 70%)}
+  .hero .wrap{position:relative}
+  h1{font:600 clamp(2.3rem,5vw,3.9rem)/1.06 "Space Grotesk",sans-serif;letter-spacing:-.02em;margin:18px 0 22px;max-width:18ch;color:var(--head)}
+  .lede{font-size:1.2rem;color:var(--muted);max-width:56ch}
+  .meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+  .chip{font:400 .76rem "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--head);background:var(--blue-soft);border:1px solid var(--blue-line);padding:7px 12px;border-radius:2px}
+
+  /* stat strip */
+  .strip{background:var(--band);color:#fff;padding:0}
+  .strip-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+  .stat{padding:34px 28px;border-left:1px solid rgba(255,255,255,.12)}
+  .stat:first-child{border-left:0}
+  .stat b{display:block;font:400 2.1rem "JetBrains Mono",monospace;color:var(--gold)}
+  .stat span{display:block;color:#C5D0EE;font-size:.93rem;margin-top:4px}
+
+  section{padding:88px 0;border-top:1px solid var(--line)}
+  .hero + .strip + section{border-top:0}
+  h2{font:600 clamp(1.7rem,3.2vw,2.5rem)/1.15 "Space Grotesk",sans-serif;letter-spacing:-.01em;margin:14px 0 20px;color:var(--head);max-width:24ch}
+  h3{font:700 1.15rem/1.3 "Space Grotesk",sans-serif;color:var(--head)}
+  .intro{font-size:1.1rem;color:var(--muted);max-width:62ch;margin-bottom:36px}
+  .alt{background:var(--surface)}
+
+  .cols{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+  .card{background:var(--surface);border:1px solid var(--line);padding:30px;box-shadow:0 1px 2px rgba(7,13,31,.04)}
+  .alt .card{background:var(--bg)}
+  .card .mono{display:block;margin-bottom:10px}
+  .card p{color:var(--muted);font-size:1rem;margin-top:10px}
+  .card p strong{color:var(--ink)}
+  .rule{border-left:3px solid var(--gold);padding:6px 0 6px 22px;margin:34px 0 0;max-width:70ch}
+  .rule p{color:var(--ink)}
+  .note{margin-top:34px;background:var(--blue-soft);border:1px solid var(--blue-line);padding:22px 26px;max-width:78ch;font-size:.98rem;color:var(--ink)}
+  .note b{font-family:"Space Grotesk",sans-serif}
+
+  /* calculator */
+  .calc{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);background:var(--surface);max-width:760px}
+  .calc > div{padding:26px 28px}
+  .calc .out{background:var(--band);color:#fff}
+  .calc label{display:block;font:400 .74rem "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+  .calc .row{display:flex;gap:8px}
+  .calc input,.calc select{font:500 1.05rem "DM Sans",sans-serif;padding:11px 12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:2px;width:100%}
+  .calc input:focus,.calc select:focus{outline:2px solid var(--blue);outline-offset:1px}
+  .calc select{width:90px}
+  .calc .big{font:400 2rem "JetBrains Mono",monospace;color:var(--gold)}
+  .calc .out p{color:#C5D0EE;font-size:.9rem;line-height:1.5;margin-top:6px}
+  .calc .small{font-size:.86rem;color:var(--muted);margin-top:12px;line-height:1.5}
+
+  /* sources */
+  .sources ol{list-style:none;counter-reset:s;display:grid;gap:14px;max-width:860px}
+  .sources li{counter-increment:s;position:relative;padding:18px 20px 18px 62px;background:var(--surface);border:1px solid var(--line);font-size:.98rem;line-height:1.55}
+  .sources li::before{content:counter(s);position:absolute;left:20px;top:18px;font:400 1rem "JetBrains Mono",monospace;color:var(--blue)}
+  .sources li em{color:var(--muted);font-style:normal}
+  .sources li:target{outline:2px solid var(--gold)}
+
+  /* disclaimer + cta */
+  .disclaimer{max-width:78ch;color:var(--muted);font-size:.95rem}
+  .disclaimer b{color:var(--ink)}
+  .cta{background:var(--band);color:#fff;text-align:center}
+  .cta h2{color:#fff;margin:14px auto 16px;max-width:20ch}
+  .cta .mono{color:#8FB1FF}
+  .cta p{color:#C5D0EE;max-width:54ch;margin:0 auto 32px}
+  .cta .hero-ctas{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+  .cta .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.3)}
+  .cta .btn-ghost:hover{border-color:#fff}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:.9rem}
+  .foot{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center}
+  .foot > :first-child{justify-self:start}
+  .foot > :last-child{justify-self:end}
+  .foot .tagline{justify-self:center;text-align:center}
+  .tagline{font:200 1.1rem "Josefin Sans",sans-serif;letter-spacing:.12em;text-transform:lowercase;color:var(--blue)}
+
+  @media (max-width:860px){
+    .nav nav a:not(.btn){display:none}
+    .nav nav{gap:14px}
+    .hero{padding:56px 0 56px}
+    .strip-grid,.cols,.calc{grid-template-columns:1fr}
+    .stat{border-left:0;border-top:1px solid rgba(255,255,255,.12);padding:26px 24px}
+    .stat:first-child{border-top:0}
+    section{padding:64px 0}
+    .foot{grid-template-columns:1fr;justify-items:center;text-align:center;gap:14px}
+    .foot > :first-child,.foot > :last-child{justify-self:center}
+  }
+  @media (max-width:420px){ .wrap{padding:0 16px} .mark span{display:none} .nav .btn{padding:10px 14px} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="mark" href="index.html" aria-label="Nastasja Terry home">
+      <img src="images/architect-mark.svg" width="34" height="34" alt="">
+      <span>nastasja terry</span>
+    </a>
+    <nav>
+      <a href="#muscle">Muscle</a>
+      <a href="#eating">Eating well</a>
+      <a href="#nutrients">Nutrients</a>
+      <a href="#sources">Sources</a>
+      <!-- REPLACE: swap the URL below for your Amway site link -->
+      <button class="theme-toggle" type="button" id="themeToggle" aria-label="Switch to light mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="btn btn-gold" href="https://example.com/replace-with-your-amway-link" rel="noopener">My Amway site</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <p class="mono">Nutrition · GLP-1 research</p>
+      <h1>Eating well on a GLP&#8209;1: what the research says.</h1>
+      <p class="lede">Medications like semaglutide and tirzepatide change appetite, and appetite is not the whole story. This page walks through what peer-reviewed research says about protecting muscle, eating enough on low appetite, and the nutrients that quietly run short. Every claim links to its source, and I say where the evidence is thin.</p>
+      <div class="meta">
+        <span class="chip">Updated Oct 2026</span>
+        <span class="chip">6 peer-reviewed sources</span>
+        <span class="chip">Educational, not medical advice</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- KEY NUMBERS -->
+  <div class="strip">
+    <div class="wrap strip-grid">
+      <div class="stat"><b>~25%</b><span>of weight lost was lean mass, on average, across 22 randomized trials (the range between trials is wide)<sup><a href="#s2" style="color:#8FB1FF">2</a></sup></span></div>
+      <div class="stat"><b>&gt;1.2 g/kg</b><span>daily protein, spread across meals, is the expert recommendation for preserving lean mass<sup><a href="#s3" style="color:#8FB1FF">3</a></sup></span></div>
+      <div class="stat"><b>13.6%</b><span>had a vitamin D deficiency at 12 months in the pooled data of a 2026 review<sup><a href="#s6" style="color:#8FB1FF">6</a></sup></span></div>
+    </div>
+  </div>
+
+  <!-- MUSCLE -->
+  <section id="muscle">
+    <div class="wrap">
+      <p class="mono">01 · Muscle preservation</p>
+      <h2>Weight loss takes some lean mass with it. How much is still debated.</h2>
+      <p class="intro">"Lean mass" is not the same as muscle. It also counts organs, bone, and body water. That is one reason studies disagree, and it is why a single scary number is the wrong way to talk about this.</p>
+
+      <div class="cols">
+        <article class="card">
+          <span class="mono">Trial data</span>
+          <h3>About a quarter of the loss, on average</h3>
+          <p>A network meta-analysis of 22 randomized trials (2,258 adults) found lean mass made up roughly <strong>25% of total weight lost</strong> on GLP-1 drugs. As a percentage of starting lean mass, it was not significantly changed. The most potent drugs, tirzepatide and semaglutide, produced the most fat loss but were among the least effective at preserving lean mass.<sup><a href="#s2">2</a></sup></p>
+        </article>
+        <article class="card">
+          <span class="mono">Wide range</span>
+          <h3>From under 15% to 40–60%</h3>
+          <p>A review by Neeland and colleagues notes that across trials, lean mass reductions ranged from about <strong>15% or less up to 40–60%</strong> of weight lost, depending on the population, the drug and other conditions. MRI-based studies suggest muscle changes may be largely <strong>adaptive</strong>, in line with age, disease and the amount of weight lost. Older age and more severe disease raise the risk of sarcopenia.<sup><a href="#s1">1</a></sup></p>
+        </article>
+      </div>
+
+      <div class="rule">
+        <h3>What the guidance says helps</h3>
+        <p>A global working group recommends <strong>protein above 1.2 g/kg/day, spread evenly across meals</strong>, combined with aerobic activity and <strong>structured resistance training</strong>.<sup><a href="#s3">3</a></sup> Spreading matters: in a lab study of healthy men, older men needed about 0.40 g/kg of protein in a single meal to maximally stimulate muscle protein synthesis, compared with about 0.24 g/kg in younger men. That study did not involve GLP-1 users.<sup><a href="#s5">5</a></sup></p>
+      </div>
+
+      <div class="calc" aria-label="Protein floor calculator">
+        <div>
+          <label for="w">Body weight</label>
+          <div class="row">
+            <input id="w" type="number" inputmode="decimal" min="1" step="any" placeholder="e.g. 70">
+            <select id="u" aria-label="Unit"><option value="kg">kg</option><option value="lb">lb</option></select>
+          </div>
+          <p class="small">Uses the 1.2 g/kg floor from the working group's recommendation.<sup><a href="#s3">3</a></sup> It is a floor, not a prescription. People with kidney disease and other conditions need individual guidance from their care team.</p>
+        </div>
+        <div class="out">
+          <label for="d" style="color:#8FB1FF">At least</label>
+          <div class="big" id="d">— g/day</div>
+          <p id="m">Enter your weight to see the daily floor and a three-meal split.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EATING WELL -->
+  <section id="eating" class="alt">
+    <div class="wrap">
+      <p class="mono">02 · Eating well on low appetite</p>
+      <h2>The challenge is often eating enough, not eating less.</h2>
+      <p class="intro">When hunger fades, meals can shrink faster than nutrition needs do. Clinical guidance on this is real but young, and most of it is expert consensus.</p>
+
+      <div class="cols">
+        <article class="card">
+          <span class="mono">What the guidance covers</span>
+          <h3>Structure, not willpower</h3>
+          <p>The 2025 working-group recommendations pair GLP-1 therapy with <strong>structured diet and exercise</strong>, which showed additive weight-loss effects in trials compared with either alone. They also give specific strategies for nausea, vomiting, diarrhea and constipation, and for complications such as gallstones and reflux.<sup><a href="#s3">3</a></sup></p>
+        </article>
+        <article class="card">
+          <span class="mono">Expert consensus</span>
+          <h3>52 statements, mostly indirect evidence</h3>
+          <p>An international panel of physicians, researchers and dietitians produced 52 consensus statements covering nutrition, body composition, physical activity and digestive symptoms, from before starting through maintenance and stopping. The authors state these come <strong>primarily from indirect evidence</strong>, such as bariatric nutrition therapy and clinical experience, and that more direct evidence is urgently needed.<sup><a href="#s4">4</a></sup></p>
+        </article>
+      </div>
+
+      <div class="note">
+        <b>What people say, and why it is not evidence.</b> In online communities, people on GLP-1s often describe struggling to get enough protein once their appetite drops. That is anecdotal and self-selected, so I treat it as a question worth researching, not as a finding. The research above is what this page rests on.
+      </div>
+    </div>
+  </section>
+
+  <!-- NUTRIENTS -->
+  <section id="nutrients">
+    <div class="wrap">
+      <p class="mono">03 · Micronutrient gaps</p>
+      <h2>Eating less food can mean getting fewer nutrients.</h2>
+      <p class="intro">A 2026 narrative review in <em>Clinical Obesity</em> pulled together six studies covering 480,825 adults. The pattern points to appetite suppression, slower gastric emptying and altered absorption as reasons nutrients can fall short.<sup><a href="#s6">6</a></sup></p>
+
+      <div class="cols">
+        <article class="card">
+          <span class="mono">Vitamin D</span>
+          <h3>The most common shortfall</h3>
+          <p>Deficiency appeared in <strong>7.5% of users at 6 months and 13.6% at 12 months</strong>. Average vitamin D intake was only about 20% of recommendations.<sup><a href="#s6">6</a></sup></p>
+        </article>
+        <article class="card">
+          <span class="mono">Iron</span>
+          <h3>Lower stores</h3>
+          <p>GLP-1 users had <strong>26–30% lower ferritin</strong> than people taking SGLT2 inhibitors, a comparison drug class. More than 60% of users ate below estimated requirements for calcium and iron.<sup><a href="#s6">6</a></sup></p>
+        </article>
+        <article class="card">
+          <span class="mono">Thiamine and B12</span>
+          <h3>Gaps that grow over time</h3>
+          <p>Thiamine (B1) and cobalamin (B12) deficits <strong>increased over follow-up</strong> in the studies reviewed.<sup><a href="#s6">6</a></sup></p>
+        </article>
+        <article class="card">
+          <span class="mono">Protein and calcium</span>
+          <h3>Linked to lean mass loss</h3>
+          <p>The review reports that insufficient <strong>protein and calcium</strong> intake contributed to lean mass loss, tying this section back to muscle.<sup><a href="#s6">6</a></sup></p>
+        </article>
+      </div>
+
+      <div class="note">
+        <b>Read with care.</b> The findings come mainly from observational datasets, and the authors say causality between GLP-1 therapy and deficiencies cannot be definitively established. Their suggestion is <b>targeted nutritional assessment and individualized lab evaluation</b> for people at higher risk, so ask your prescriber or dietitian which tests make sense for you instead of guessing.<sup><a href="#s6">6</a></sup>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOURCES -->
+  <section id="sources" class="alt sources">
+    <div class="wrap">
+      <p class="mono">Sources</p>
+      <h2>Every claim, linked.</h2>
+      <p class="intro">All six papers were checked in PubMed. Where I describe a finding, I stay within what the paper's own summary states.</p>
+      <ol>
+        <li id="s1">Neeland IJ, Linge J, Birkenfeld AL. Changes in lean body mass with glucagon-like peptide-1-based therapies and mitigation strategies. <em>Diabetes Obes Metab.</em> 2024. <a href="https://doi.org/10.1111/dom.15728" rel="noopener">doi:10.1111/dom.15728</a></li>
+        <li id="s2">Karakasis P, Patoulias D, Fragakis N, Mantzoros CS. Effect of glucagon-like peptide-1 receptor agonists and co-agonists on body composition: systematic review and network meta-analysis. <em>Metabolism.</em> 2024. <a href="https://doi.org/10.1016/j.metabol.2024.156113" rel="noopener">doi:10.1016/j.metabol.2024.156113</a></li>
+        <li id="s3">Noronha JC, Van Gaal LF, Neeland IJ, et al. Optimizing GLP-1 therapies for obesity and diabetes management. <em>Obes Pillars.</em> 2025. <a href="https://doi.org/10.1016/j.obpill.2025.100222" rel="noopener">doi:10.1016/j.obpill.2025.100222</a></li>
+        <li id="s4">Sievenpiper JL, Ard J, Blüher M, et al. Nutritional and lifestyle supportive care recommendations for management of obesity with GLP-1-based therapies: an expert consensus statement using a modified Delphi approach. <em>Obes Pillars.</em> 2025. <a href="https://doi.org/10.1016/j.obpill.2025.100228" rel="noopener">doi:10.1016/j.obpill.2025.100228</a></li>
+        <li id="s5">Moore DR, Churchward-Venne TA, Witard O, et al. Protein ingestion to stimulate myofibrillar protein synthesis requires greater relative protein intakes in healthy older versus younger men. <em>J Gerontol A Biol Sci Med Sci.</em> 2015;70(1):57-62. <a href="https://doi.org/10.1093/gerona/glu103" rel="noopener">doi:10.1093/gerona/glu103</a></li>
+        <li id="s6">Urbina J, Salinas-Ruiz LE, Valenciano C, Clapp B. Micronutrient and nutritional deficiencies associated with GLP-1 receptor agonist therapy: a narrative review. <em>Clin Obes.</em> 2026. <a href="https://doi.org/10.1111/cob.70070" rel="noopener">doi:10.1111/cob.70070</a></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <section style="padding:56px 0">
+    <div class="wrap">
+      <p class="disclaimer"><b>This page is educational and is not medical advice.</b> I am an engineer who reads the research closely, not a clinician. Decisions about medication, supplements, lab tests and protein targets belong with your prescriber or a registered dietitian. If you have a history of disordered eating, please talk with a clinician before changing how you eat.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="next">
+    <div class="wrap">
+      <p class="mono">Go further</p>
+      <h2>Looking for products that fit these goals?</h2>
+      <p>You can find my Amway site here. The research above stands on its own and is independent of any product.</p>
+      <div class="hero-ctas">
+        <!-- REPLACE: swap the URL below for your Amway site link -->
+        <a class="btn btn-gold" href="https://example.com/replace-with-your-amway-link" rel="noopener">Visit my Amway site</a>
+        <a class="btn btn-ghost" href="index.html#book">Book me to speak</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Nastasja Terry · San Diego, CA</span>
+    <span class="tagline">Stay Vigilant. Stay Visionary.</span>
+    <!-- REPLACE: add your LinkedIn profile URL -->
+    <a href="https://www.linkedin.com/" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var w=document.getElementById('w'),u=document.getElementById('u'),d=document.getElementById('d'),m=document.getElementById('m');
+    function run(){
+      var v=parseFloat(w.value);
+      if(!(v>0)){d.textContent='— g/day';m.textContent='Enter your weight to see the daily floor and a three-meal split.';return}
+      var kg=u.value==='lb'?v/2.20462:v;
+      var day=Math.round(kg*1.2);
+      var meal=Math.round(kg*1.2/3);
+      d.textContent=day+' g/day';
+      m.textContent='About '+meal+' g per meal across three meals. Spread it out, and confirm your own target with your care team.';
+    }
+    w.addEventListener('input',run);u.addEventListener('change',run);
+  })();
+</script>
+<script>
+  /* Theme toggle: saves the visitor's choice for both pages (falls back quietly if storage is blocked). */
+  (function(){
+    var r=document.documentElement,b=document.getElementById('themeToggle');
+    function sync(){b.setAttribute('aria-label',r.getAttribute('data-theme')==='dark'?'Switch to light mode':'Switch to dark mode')}
+    b.addEventListener('click',function(){
+      var n=r.getAttribute('data-theme')==='dark'?'light':'dark';
+      r.setAttribute('data-theme',n);
+      try{localStorage.setItem('nt-theme',n)}catch(e){}
+      sync();
+    });
+    sync();
+  })();
+</script>
+
+</body>
+</html>
