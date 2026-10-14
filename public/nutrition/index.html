@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  /* Apply the saved theme before first paint (shared with the home page via the same key). This page's designed default is light. */
+  (function(){var t=null;try{t=localStorage.getItem('nt-theme')}catch(e){}
+  if(t!=='light'&&t!=='dark'){t='light'}
+  document.documentElement.setAttribute('data-theme',t)})();
+</script>
+<title>Eating Less on a Peptide? What Your Body Still Needs — Nastasja Terry</title>
+<meta name="description" content="Low appetite on a peptide-based weight-loss plan? Learn why protein, fluids, fiber and micronutrients matter more when you eat less, and how a 30-day routine can help you cover them.">
+<link rel="canonical" href="https://www.nastasjaterry.com/nutrition">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Eating less and still stuck? What your body still needs">
+<meta property="og:description" content="When appetite is low, protein is the first thing to slip. A plain-language guide to nutrition for people losing weight with peptide-based medications.">
+<meta property="og:url" content="https://www.nastasjaterry.com/nutrition">
+<meta property="og:image" content="https://www.nastasjaterry.com/images/hero.jpg">
+<link rel="icon" type="image/svg+xml" href="/images/architect-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400&family=Josefin+Sans:wght@200&family=Plus+Jakarta+Sans:wght@700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  /* Architect type system (same fonts as the home page), wellness palette: sage, forest, warm clay. */
+  :root{
+    --bg:#F4F8F2; --bg2:#FFFFFF; --tint:#E3EFE5;
+    --accent:#256B4C; --accent-hover:#1C573D; --on-accent:#FFFFFF;
+    --link:#1F6A49; --warm:#C8664A; --text:#14261F; --muted:#48604F;
+    --line:rgba(20,38,31,.13); --header-bg:rgba(244,248,242,.9);
+    color-scheme:light;
+  }
+  :root[data-theme="dark"]{
+    --bg:#0B1A15; --bg2:#112620; --tint:#16322A;
+    --accent:#6FD3A4; --accent-hover:#8BE0B9; --on-accent:#0B1A15;
+    --link:#86DDB5; --warm:#F0A58C; --text:#E6F2EA; --muted:#A3BCB0;
+    --line:rgba(134,221,181,.18); --header-bg:rgba(11,26,21,.88);
+    color-scheme:dark;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:84px}
+  body{background:var(--bg);color:var(--text);font:400 17px/1.7 "DM Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--link)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--link)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:5;background:var(--header-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .mark{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+  .mark span{font:200 1.15rem "Josefin Sans",sans-serif;letter-spacing:.06em;text-transform:lowercase}
+  .nav nav{display:flex;gap:28px;align-items:center}
+  .nav nav a{color:var(--muted);text-decoration:none;font-size:.95rem}
+  .nav nav a:hover{color:var(--text)}
+  .btn{display:inline-block;font:700 .95rem "Plus Jakarta Sans",sans-serif;text-decoration:none;
+       padding:14px 26px;border-radius:2px;transition:transform .15s ease, background .15s ease}
+  .btn-primary{background:var(--accent);color:var(--on-accent)}
+  .btn-primary:hover{background:var(--accent-hover);transform:translateY(-1px)}
+  .btn-ghost{border:1px solid var(--line);color:var(--text)}
+  .btn-ghost:hover{border-color:var(--accent)}
+  .nav .btn{padding:10px 18px;font-size:.85rem}
+  .nav nav a.btn-primary,.nav nav a.btn-primary:hover{color:var(--on-accent)}
+
+  .theme-toggle{appearance:none;background:transparent;border:1px solid var(--line);color:var(--muted);width:40px;height:40px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:none;transition:color .15s,border-color .15s}
+  .theme-toggle:hover{color:var(--text);border-color:var(--accent)}
+  .theme-toggle svg{width:18px;height:18px}
+  :root[data-theme="light"] .icon-sun,:root:not([data-theme="light"]) .icon-moon{display:none}
+
+  /* hero */
+  .hero{position:relative;overflow:hidden;padding:88px 0 96px}
+  .hero::before{content:"";position:absolute;inset:0;
+     background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+     background-size:56px 56px;mask-image:radial-gradient(ellipse at 75% 35%,#000 0%,transparent 68%);-webkit-mask-image:radial-gradient(ellipse at 75% 35%,#000 0%,transparent 68%);opacity:.55}
+  .hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:center}
+  h1{font:600 clamp(2.3rem,5.2vw,4rem)/1.08 "Space Grotesk",sans-serif;letter-spacing:-.02em;margin:18px 0 22px}
+  h1 em{font-style:normal;color:var(--warm)}
+  .lede{font-size:1.18rem;color:var(--muted);max-width:44ch}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-top:34px}
+  .fine{font-size:.82rem;line-height:1.55;color:var(--muted);margin-top:18px;max-width:60ch}
+  .signoff{font:200 1.15rem "Josefin Sans",sans-serif;letter-spacing:.14em;text-transform:lowercase;color:var(--link)}
+
+  /* hero card */
+  .card-day{background:var(--bg2);border:1px solid var(--line);border-top:3px solid var(--accent);padding:30px 28px}
+  .card-day h2{font:700 1.25rem/1.3 "Space Grotesk",sans-serif;letter-spacing:0;margin:10px 0 18px}
+  .card-day ul{list-style:none}
+  .card-day li{display:flex;gap:14px;padding:13px 0;border-top:1px solid var(--line);font-size:.98rem;line-height:1.5}
+  .card-day li:first-child{border-top:0;padding-top:0}
+  .card-day li b{display:block;font-weight:500}
+  .card-day li span{color:var(--muted);font-size:.9rem}
+  .tick{flex:none;width:22px;height:22px;border-radius:50%;background:var(--tint);color:var(--accent);display:inline-flex;align-items:center;justify-content:center;margin-top:2px}
+  .tick svg{width:12px;height:12px}
+
+  section{padding:92px 0;border-top:1px solid var(--line)}
+  h2{font:600 clamp(1.7rem,3.2vw,2.5rem)/1.15 "Space Grotesk",sans-serif;letter-spacing:-.01em;margin:14px 0 22px}
+  .sec-intro{font-size:1.12rem;color:var(--muted);max-width:62ch;margin-bottom:44px}
+  .alt{background:var(--bg2)}
+
+  /* search row */
+  .search-row{padding:34px 0;border-top:1px solid var(--line);background:var(--tint)}
+  .search-row .wrap{display:flex;flex-wrap:wrap;gap:12px 16px;align-items:center}
+  .search-row .mono{margin-right:8px}
+  .chip{display:inline-block;text-decoration:none;color:var(--text);background:var(--bg2);border:1px solid var(--line);padding:9px 16px;border-radius:999px;font-size:.93rem;transition:border-color .15s,transform .15s}
+  .chip:hover{border-color:var(--accent);transform:translateY(-1px)}
+
+  /* needs */
+  .needs{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  .need{border:1px solid var(--line);background:var(--bg);padding:28px 24px;border-top:3px solid var(--accent)}
+  .need:nth-child(2){border-top-color:var(--warm)}
+  .need:nth-child(4){border-top-color:var(--warm)}
+  .need .mono{display:block;margin-bottom:6px}
+  .need h3{font:700 1.15rem/1.3 "Space Grotesk",sans-serif;margin:6px 0 10px}
+  .need p{color:var(--muted);font-size:.97rem;line-height:1.6}
+  .note{margin-top:34px;padding:20px 24px;border-left:3px solid var(--warm);background:var(--bg);color:var(--muted);font-size:.98rem;max-width:78ch}
+  .note b{color:var(--text);font-weight:500}
+
+  /* begin 30 */
+  .b30{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+  .layers{border:1px solid var(--line);background:var(--bg2)}
+  .layer{display:grid;grid-template-columns:44px 1fr;gap:18px;padding:22px 24px;border-top:1px solid var(--line)}
+  .layer:first-child{border-top:0}
+  .layer .n{font:400 1.5rem "JetBrains Mono",monospace;color:var(--accent)}
+  .layer h3{font:700 1.08rem "Space Grotesk",sans-serif;margin-bottom:2px}
+  .layer p{color:var(--muted);font-size:.96rem;line-height:1.55}
+  .b30 .btn{margin-top:30px}
+
+  /* faq */
+  .faq{max-width:820px}
+  details{border-top:1px solid var(--line)}
+  details:last-child{border-bottom:1px solid var(--line)}
+  summary{cursor:pointer;list-style:none;padding:22px 40px 22px 0;font:600 1.12rem/1.4 "Space Grotesk",sans-serif;position:relative}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";position:absolute;right:6px;top:18px;font:400 1.6rem "JetBrains Mono",monospace;color:var(--accent);transition:transform .2s}
+  details[open] summary::after{content:"–"}
+  details p{color:var(--muted);padding:0 40px 24px 0;max-width:68ch}
+
+  /* closing cta */
+  .cta{text-align:center;background:var(--tint)}
+  .cta h2{max-width:18ch;margin:14px auto 18px}
+  .cta p.sub{color:var(--muted);max-width:50ch;margin:0 auto 34px}
+  .cta .signoff{margin-top:34px}
+
+  /* disclosures */
+  .legal{padding:44px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.84rem;line-height:1.65}
+  .legal .wrap{display:grid;gap:12px;max-width:900px}
+  .legal b{color:var(--text);font-weight:500}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:.9rem}
+  .foot{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center}
+  .foot > :first-child{justify-self:start}
+  .foot > :last-child{justify-self:end}
+  .tagline{font:200 1.1rem "Josefin Sans",sans-serif;letter-spacing:.12em;text-transform:lowercase;color:var(--link);text-align:center}
+
+  @media (max-width:980px){ .needs{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:860px){
+    .nav nav a:not(.btn){display:none}
+    .nav nav{gap:14px}
+    .hero{padding:52px 0 68px}
+    .hero-grid,.b30{grid-template-columns:1fr;gap:40px}
+    section{padding:68px 0}
+    .foot{grid-template-columns:1fr;justify-items:center;text-align:center;gap:14px}
+    .foot > :first-child,.foot > :last-child{justify-self:center}
+  }
+  @media (max-width:560px){ .needs{grid-template-columns:1fr} }
+  @media (max-width:420px){ .wrap{padding:0 16px} .mark span{display:none} .btn{padding:13px 20px} }
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto} .btn,.chip{transition:none} }
+</style>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"How much protein should I eat per day when I'm trying to lose weight?","acceptedAnswer":{"@type":"Answer","text":"Needs depend on your body size, age and activity, and guidance is usually given per kilogram of body weight. A registered dietitian or your doctor can set a target that fits you."}},
+    {"@type":"Question","name":"What can I eat when I'm not hungry?","acceptedAnswer":{"@type":"Answer","text":"Many people do better with small, frequent, protein-rich foods and drinks, and some find cold options easier. If a medication is lowering your appetite, ask your healthcare provider about your nutrition."}},
+    {"@type":"Question","name":"Why am I not losing weight in a calorie deficit?","acceptedAnswer":{"@type":"Answer","text":"Many things can play a part, including how portions and calories are tracked, sleep, activity and stress. No supplement replaces those basics. If the scale has stalled for weeks, talk with your healthcare provider."}},
+    {"@type":"Question","name":"How do I stop snacking at night?","acceptedAnswer":{"@type":"Answer","text":"Habits that start earlier in the day tend to help: protein at dinner, a set time when the kitchen closes, and enough sleep."}},
+    {"@type":"Question","name":"Can I use supplements if I take a weight-management medication?","acceptedAnswer":{"@type":"Answer","text":"Talk with your healthcare provider before starting any supplement, especially if you take a prescription medication."}},
+    {"@type":"Question","name":"Why does weight loss feel harder after 40?","acceptedAnswer":{"@type":"Answer","text":"Changes in hormones, sleep and muscle mass can all play a part. Strength training, enough protein and good sleep are common places to start, and your healthcare provider can advise you on the rest."}}
+  ]
+}
+</script>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="mark" href="/" aria-label="Nastasja Terry home">
+      <img src="/images/architect-mark.svg" width="34" height="34" alt="">
+      <span>nastasja terry</span>
+    </a>
+    <nav>
+      <a href="#needs">What you need</a>
+      <a href="#begin30">Begin 30</a>
+      <a href="#faq">Questions</a>
+      <button class="theme-toggle" type="button" id="themeToggle" aria-label="Switch to dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="btn btn-primary" href="#begin30">Start Begin 30</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 1. HERO -->
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="mono">Nutrition · Peptide-based weight loss</p>
+        <h1>Eating less and still stuck? When appetite is low, <em>protein</em> is the first thing to slip.</h1>
+        <p class="lede">Peptide-based weight-loss medications can quiet hunger. They don't quiet what your body needs. Nutrilite Begin 30 stacks plant protein, a daily gut primer and a probiotic with a personalized daily plan, so small meals still count.†</p>
+        <div class="hero-ctas">
+          <!-- REPLACE: swap the href on every "Start Begin 30" button for your Begin 30 / IBO link -->
+          <a class="btn btn-primary" href="https://www.amway.com/en_US/Shop/Nutrition/c/010" rel="noopener sponsored" target="_blank">Start Begin 30</a>
+          <a class="btn btn-ghost" href="#begin30">See what's included</a>
+        </div>
+        <p class="fine">†These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure or prevent any disease.</p>
+      </div>
+
+      <aside class="card-day" aria-labelledby="daycard">
+        <p class="mono">A low-appetite day</p>
+        <h2 id="daycard">The protein-first minimum</h2>
+        <ul>
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5l2.5 2.5L10 3.5"/></svg></span><div><b>Lead every small meal with protein</b><span>Even three bites of it before anything else.</span></div></li>
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5l2.5 2.5L10 3.5"/></svg></span><div><b>Sip fluids on a schedule</b><span>Eating less usually means drinking less too.</span></div></li>
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5l2.5 2.5L10 3.5"/></svg></span><div><b>Add one gentle fiber source</b><span>Plants, in whatever form sits well with you.</span></div></li>
+          <li><span class="tick" aria-hidden="true"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 6.5l2.5 2.5L10 3.5"/></svg></span><div><b>Move something heavy</b><span>Strength work tells your body to keep its muscle.</span></div></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+
+  <!-- 2. WHAT ARE YOU SEARCHING FOR -->
+  <div class="search-row">
+    <div class="wrap">
+      <p class="mono">What are you searching for?</p>
+      <a class="chip" href="#q-scale">Scale not moving</a>
+      <a class="chip" href="#q-hungry">Not hungry, but need protein</a>
+      <a class="chip" href="#q-night">Snacking at night</a>
+      <a class="chip" href="#q-protein">How much protein per day</a>
+      <a class="chip" href="#q-40">Weight loss after 40</a>
+    </div>
+  </div>
+
+  <!-- 3. WHAT YOUR BODY STILL NEEDS -->
+  <section class="alt" id="needs">
+    <div class="wrap">
+      <p class="mono">What your body still needs</p>
+      <h2>Less hunger doesn't mean fewer needs.</h2>
+      <p class="sec-intro">Peptide-based medications, such as the GLP-1 class, work in part by lowering appetite, so you eat less. That can help the scale. It also shrinks your chances to get protein, fluids, fiber, vitamins and minerals. Four things deserve a plan.</p>
+
+      <div class="needs">
+        <article class="need">
+          <span class="mono">01</span>
+          <h3>Protein</h3>
+          <p>When weight comes off, some of it can be lean mass, not only fat. Protein at each small meal, plus strength training, is the usual way to protect muscle. Small meals leave little room, so protein goes first.</p>
+        </article>
+        <article class="need">
+          <span class="mono">02</span>
+          <h3>Fluids</h3>
+          <p>A good share of daily fluid comes from food. Eat less and you may drink less without noticing. Steady sips through the day beat catching up in the evening.</p>
+        </article>
+        <article class="need">
+          <span class="mono">03</span>
+          <h3>Fiber and gut comfort</h3>
+          <p>Digestive changes such as constipation or nausea are commonly reported. Gentle fiber, fluids and regular small meals are common starting points. Symptoms that persist belong with your provider.</p>
+        </article>
+        <article class="need">
+          <span class="mono">04</span>
+          <h3>Vitamins and minerals</h3>
+          <p>Fewer meals means fewer chances to cover the basics. Ask your provider or a registered dietitian whether any gaps need filling, and check before adding any supplement.</p>
+        </article>
+      </div>
+
+      <p class="note"><b>A word on sourcing.</b> Peptide medications should come from your own prescriber and a licensed pharmacy. This page doesn't sell, recommend or advise on dosing of any peptide, and nothing here replaces your care team. It covers what goes on your plate.</p>
+    </div>
+  </section>
+
+  <!-- 4. BEGIN 30 -->
+  <section id="begin30">
+    <div class="wrap b30">
+      <div>
+        <p class="mono">What's in Begin 30</p>
+        <h2>One 30-day routine. Four layers.</h2>
+        <p class="sec-intro" style="margin-bottom:0">You're already counting and cutting. Begin 30 gives that effort a structure for the days you don't feel like eating.†</p>
+        <!-- OPTIONAL: add the current price line and real star rating / review count from the product pages here. Do not invent either. -->
+        <a class="btn btn-primary" href="https://www.amway.com/en_US/Shop/Nutrition/c/010" rel="noopener sponsored" target="_blank">Start Begin 30</a>
+        <p class="fine">Begin 30 is nutrition support, not a peptide and not a medication. It's designed to sit alongside whatever plan your provider sets.†</p>
+      </div>
+
+      <div class="layers">
+        <div class="layer"><span class="n">1</span><div><h3>Protein</h3><p>Nutrilite Organics Plant Protein Powder, easy to stir into small meals.</p></div></div>
+        <div class="layer"><span class="n">2</span><div><h3>Gut support</h3><p>Nutrilite Begin Daily GI Primer.</p></div></div>
+        <div class="layer"><span class="n">3</span><div><h3>Probiotic</h3><p>Nutrilite Balance Within Probiotic.</p></div></div>
+        <div class="layer"><span class="n">4</span><div><h3>Daily plan</h3><p>Wellbeing+ app: an assessment that sets your daily habits across nutrition, hydration, exercise and mindfulness.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. FAQ -->
+  <section class="alt" id="faq">
+    <div class="wrap">
+      <p class="mono">Questions people ask</p>
+      <h2>Straight answers, in plain language.</h2>
+      <div class="faq">
+        <details id="q-protein"><summary>How much protein should I eat per day when I'm trying to lose weight?</summary><p>Needs depend on your body size, age and activity, and guidance is usually given per kilogram of body weight. A registered dietitian or your doctor can set a target that fits you.</p></details>
+        <details id="q-hungry"><summary>What can I eat when I'm not hungry?</summary><p>Many people do better with small, frequent, protein-rich foods and drinks, and some find cold options easier. Begin 30's plant protein can be stirred into small meals.† If a medication is lowering your appetite, ask your healthcare provider about your nutrition.</p></details>
+        <details id="q-scale"><summary>Why am I not losing weight in a calorie deficit?</summary><p>Many things can play a part, including how portions and calories are tracked, sleep, activity and stress. No supplement replaces those basics. If the scale has stalled for weeks, talk with your healthcare provider.</p></details>
+        <details id="q-night"><summary>How do I stop snacking at night?</summary><p>Habits that start earlier in the day tend to help: protein at dinner, a set time when the kitchen closes, and enough sleep. The Wellbeing+ app lets you track those habits day by day.†</p></details>
+        <details id="q-meds"><summary>Can I use Begin 30 products if I take a weight-management medication?</summary><p>Talk with your healthcare provider before starting any supplement, especially if you take a prescription medication.</p></details>
+        <details id="q-40"><summary>Why does weight loss feel harder after 40?</summary><p>Changes in hormones, sleep and muscle mass can all play a part. Strength training, enough protein and good sleep are common places to start, and your healthcare provider can advise you on the rest.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. CLOSING CTA -->
+  <section class="cta">
+    <div class="wrap">
+      <p class="mono">Your next step</p>
+      <h2>Start with one routine, not twelve categories.</h2>
+      <p class="sub">Thirty days, four layers, one plan that still works on the days you aren't hungry.†</p>
+      <a class="btn btn-primary" href="https://www.amway.com/en_US/Shop/Nutrition/c/010" rel="noopener sponsored" target="_blank">Start Begin 30</a>
+      <p class="signoff">Plant. Grow. Thrive.</p>
+    </div>
+  </section>
+</main>
+
+<div class="legal">
+  <div class="wrap">
+    <p><b>†</b> These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure or prevent any disease.</p>
+    <p><b>Not medical advice.</b> This page is general education. It isn't a substitute for advice from your doctor, pharmacist or registered dietitian. Talk with your healthcare provider before changing your diet, starting a supplement, or changing any medication.</p>
+    <!-- REPLACE: confirm this disclosure wording against Amway's current Rules of Conduct before publishing. -->
+    <p><b>Disclosure.</b> I'm an independent Amway business owner. If you buy through the links on this page, I may earn compensation. Product names and trademarks belong to Amway.</p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Nastasja Terry · San Diego, CA</span>
+    <span class="tagline">Stay Vigilant. Stay Visionary.</span>
+    <a href="/">← Back to home</a>
+  </div>
+</footer>
+
+<script>
+  /* Theme toggle: shares the visitor's choice with the home page (falls back quietly if storage is blocked). */
+  (function(){
+    var r=document.documentElement,b=document.getElementById('themeToggle');
+    function sync(){b.setAttribute('aria-label',r.getAttribute('data-theme')==='dark'?'Switch to light mode':'Switch to dark mode')}
+    b.addEventListener('click',function(){
+      var n=r.getAttribute('data-theme')==='dark'?'light':'dark';
+      r.setAttribute('data-theme',n);
+      try{localStorage.setItem('nt-theme',n)}catch(e){}
+      sync();
+    });
+    sync();
+  })();
+
+  /* Open the matching FAQ answer when a "What are you searching for?" chip (or a #q-... link) is used. */
+  (function(){
+    function openHash(){
+      var id=location.hash.slice(1),el=id&&document.getElementById(id);
+      if(el&&el.tagName==='DETAILS'){el.open=true}
+    }
+    window.addEventListener('hashchange',openHash);
+    openHash();
+  })();
+</script>
+
+</body>
+</html>
