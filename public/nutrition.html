@@ -144,17 +144,27 @@
   .foot .tagline{justify-self:center;text-align:center}
   .tagline{font:200 1.1rem "Josefin Sans",sans-serif;letter-spacing:.12em;text-transform:lowercase;color:var(--blue)}
 
+  /* bites */
+  .bites-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:8px}
+  .bite{display:block;background:var(--surface);border:1px solid var(--line);padding:22px 18px;text-decoration:none;color:inherit;transition:border-color .15s,transform .15s}
+  .bite:hover{border-color:var(--blue);transform:translateY(-2px)}
+  .bite-letter{display:block;font:700 1.8rem "Space Grotesk",sans-serif;color:var(--gold)}
+  .bite h3{margin-top:8px;font-size:1rem}
+  .bite p{color:var(--muted);font-size:.88rem;margin-top:6px;line-height:1.45}
+
   @media (max-width:860px){
     .nav nav a:not(.btn){display:none}
     .nav nav{gap:14px}
     .hero{padding:56px 0 56px}
     .strip-grid,.cols,.calc{grid-template-columns:1fr}
+    .bites-grid{grid-template-columns:1fr 1fr}
     .stat{border-left:0;border-top:1px solid rgba(255,255,255,.12);padding:26px 24px}
     .stat:first-child{border-top:0}
     section{padding:64px 0}
     .foot{grid-template-columns:1fr;justify-items:center;text-align:center;gap:14px}
     .foot > :first-child,.foot > :last-child{justify-self:center}
   }
+  @media (max-width:560px){ .bites-grid{grid-template-columns:1fr} }
   @media (max-width:420px){ .wrap{padding:0 16px} .mark span{display:none} .nav .btn{padding:10px 14px} }
 </style>
 </head>
@@ -167,6 +177,7 @@
       <span>nastasja terry</span>
     </a>
     <nav>
+      <a href="#bites">Method</a>
       <a href="#muscle">Muscle</a>
       <a href="#eating">Eating well</a>
       <a href="#nutrients">Nutrients</a>
@@ -205,6 +216,22 @@
     </div>
   </div>
 
+  <!-- BITES -->
+  <section id="bites" class="alt">
+    <div class="wrap">
+      <p class="mono">The method</p>
+      <h2>Enough on Empty, in five BITES.</h2>
+      <p class="intro">Five questions I had on a low appetite, each chased down in the research below. B is a number built from your own weight; I, T, E and S are what keeps it honest.</p>
+      <div class="bites-grid">
+        <a class="bite" href="#floor"><span class="bite-letter">B</span><h3>Baseline</h3><p>Your protein floor, from your own weight.</p></a>
+        <a class="bite" href="#eating"><span class="bite-letter">I</span><h3>In three meals</h3><p>Spread it out — appetite drops meals faster than it drops needs.</p></a>
+        <a class="bite" href="#muscle"><span class="bite-letter">T</span><h3>Train</h3><p>Resistance training, paired with protein, is what the guidance says protects muscle.</p></a>
+        <a class="bite" href="#sources"><span class="bite-letter">E</span><h3>Evidence, plainly</h3><p>Every claim on this page links to its source. No exceptions.</p></a>
+        <a class="bite" href="#nutrients"><span class="bite-letter">S</span><h3>Shortfalls</h3><p>Vitamin D, iron, B12 — the gaps that build quietly on low intake.</p></a>
+      </div>
+    </div>
+  </section>
+
   <!-- MUSCLE -->
   <section id="muscle">
     <div class="wrap">
@@ -230,7 +257,7 @@
         <p>A global working group recommends <strong>protein above 1.2 g/kg/day, spread evenly across meals</strong>, combined with aerobic activity and <strong>structured resistance training</strong>.<sup><a href="#s3">3</a></sup> Spreading matters: in a lab study of healthy men, older men needed about 0.40 g/kg of protein in a single meal to maximally stimulate muscle protein synthesis, compared with about 0.24 g/kg in younger men. That study did not involve GLP-1 users.<sup><a href="#s5">5</a></sup></p>
       </div>
 
-      <div class="calc" aria-label="Protein floor calculator">
+      <div class="calc" id="floor" aria-label="Protein floor calculator">
         <div>
           <label for="w">Body weight</label>
           <div class="row">
