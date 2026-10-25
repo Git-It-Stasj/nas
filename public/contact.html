@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  /* Apply the saved theme before first paint so there is no flash. This page's designed default is dark. */
+  (function(){var t=null;try{t=localStorage.getItem('nt-theme')}catch(e){}
+  if(t!=='light'&&t!=='dark'){t='dark'}
+  document.documentElement.setAttribute('data-theme',t)})();
+</script>
+<title>Contact — Nastasja Terry</title>
+<meta name="description" content="Book Nastasja Terry to speak, run a TIGER Framework workshop, or lead an AI readiness assessment. I'll be back in touch within two business days.">
+<meta property="og:title" content="Contact — Nastasja Terry">
+<meta property="og:description" content="Book a keynote, a workshop, or an AI readiness assessment.">
+<meta property="og:image" content="/images/hero.jpg">
+<link rel="icon" type="image/svg+xml" href="images/architect-mark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;500&family=Josefin+Sans:wght@200&family=Plus+Jakarta+Sans:wght@700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#070D1F; --bg2:#0D1530; --gold:#F0C040; --blue:#3D7FFF;
+    --blue-lt:#6AA0FF; --text:#E8EEFF; --muted:#9FB0D8; --line:rgba(106,160,255,.18);
+    --on-gold:#070D1F; --gold-text:#F0C040; --header-bg:rgba(7,13,31,.86);
+    color-scheme:dark;
+  }
+  /* Light variant (same palette family as the rest of the site) */
+  :root[data-theme="light"]{
+    --bg:#F6F8FD; --bg2:#FFFFFF; --blue:#2A63D8;
+    --blue-lt:#2A63D8; --text:#0E1630; --muted:#4B5A7C; --line:rgba(7,13,31,.12);
+    --gold-text:#7A5A00; --header-bg:rgba(246,248,253,.9);
+    color-scheme:light;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font:400 17px/1.7 "DM Sans",system-ui,sans-serif;
+       -webkit-font-smoothing:antialiased}
+  a{color:var(--blue-lt)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  .mono{font-family:"JetBrains Mono",monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-lt)}
+
+  /* nav */
+  header{position:sticky;top:0;z-index:5;background:var(--header-bg);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+  .mark{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+  .mark span{font:200 1.15rem "Josefin Sans",sans-serif;letter-spacing:.06em;text-transform:lowercase}
+  .nav nav{display:flex;gap:28px;align-items:center}
+  .nav nav a{color:var(--muted);text-decoration:none;font-size:.95rem}
+  .nav nav a:hover{color:var(--text)}
+  .btn{appearance:none;-webkit-appearance:none;display:inline-block;font:700 .95rem "Plus Jakarta Sans",sans-serif;text-decoration:none;
+       padding:14px 26px;border-radius:2px;border:none;cursor:pointer;transition:transform .15s ease, background .15s ease, opacity .15s ease}
+  .btn-gold{background:var(--gold);color:var(--on-gold)}
+  .btn-gold:hover{transform:translateY(-1px)}
+  .btn-gold:disabled{opacity:.6;cursor:default;transform:none}
+  .btn-ghost{border:1px solid var(--line);color:var(--text);background:transparent}
+  .btn-ghost:hover{border-color:var(--blue-lt)}
+  .nav .btn{padding:10px 18px;font-size:.85rem}
+
+  /* theme toggle */
+  .theme-toggle{appearance:none;background:transparent;border:1px solid var(--line);color:var(--muted);width:40px;height:40px;border-radius:2px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;flex:none;transition:color .15s,border-color .15s}
+  .theme-toggle:hover{color:var(--text);border-color:var(--blue-lt)}
+  .theme-toggle:focus-visible{outline:2px solid var(--blue-lt);outline-offset:2px}
+  .theme-toggle svg{width:18px;height:18px}
+  :root[data-theme="light"] .icon-sun,:root:not([data-theme="light"]) .icon-moon{display:none}
+
+  section{padding:96px 0;border-top:1px solid var(--line)}
+  section:first-of-type{border-top:0}
+  h1{font:600 clamp(2.2rem,4.6vw,3.2rem)/1.1 "Space Grotesk",sans-serif;letter-spacing:-.02em;margin:16px 0 20px}
+  h2{font:700 1.3rem/1.3 "Space Grotesk",sans-serif;margin-bottom:8px}
+
+  /* page grid */
+  .contact-wrap{display:grid;grid-template-columns:.95fr 1.25fr;gap:64px;align-items:start}
+  .lede{font-size:1.1rem;color:var(--muted);max-width:40ch;margin-bottom:40px}
+  .tagline-row{display:flex;align-items:center;gap:16px;margin:28px 0 0;color:var(--gold-text);font:200 1.05rem "Josefin Sans",sans-serif;letter-spacing:.1em;text-transform:lowercase}
+  .tagline-row::before{content:"";flex:0 0 40px;height:1px;background:var(--gold-text)}
+
+  /* intent cards */
+  .intent-label{font:700 .85rem "Plus Jakarta Sans",sans-serif;letter-spacing:.02em;color:var(--text);margin-bottom:14px}
+  .intent-list{display:flex;flex-direction:column;gap:10px;margin-bottom:40px}
+  .intent-item{appearance:none;-webkit-appearance:none;display:flex;align-items:flex-start;gap:14px;background:var(--bg2);border:1px solid var(--line);padding:16px 18px;cursor:pointer;text-align:left;width:100%;color:var(--text);font-family:"DM Sans",sans-serif;transition:border-color .15s,background .15s}
+  .intent-item:hover{border-color:var(--blue-lt)}
+  .intent-item.selected{border-color:var(--gold);background:rgba(240,192,64,.08)}
+  .intent-icon{flex:none;width:30px;height:30px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--gold-text)}
+  .intent-item.selected .intent-icon{border-color:var(--gold);color:var(--gold-text)}
+  .intent-icon svg{width:16px;height:16px}
+  .intent-text h3{font:600 .95rem "Space Grotesk",sans-serif;margin-bottom:3px}
+  .intent-text p{font-size:.85rem;color:var(--muted);line-height:1.5;margin:0}
+
+  /* direct contact */
+  .direct-contact{border-left:2px solid var(--blue);padding:4px 0 4px 20px;margin-bottom:40px}
+  .direct-contact p{font-size:.85rem;color:var(--muted);margin-bottom:6px}
+  .direct-contact a{font-family:"JetBrains Mono",monospace;font-size:.9rem;letter-spacing:.02em}
+
+  /* social */
+  .social-row p{font-size:.85rem;color:var(--muted);margin-bottom:12px}
+  .social-links{display:flex;gap:10px;flex-wrap:wrap}
+  .social-link{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);padding:8px 14px;color:var(--muted);text-decoration:none;font-size:.85rem;transition:border-color .15s,color .15s}
+  .social-link:hover{border-color:var(--blue-lt);color:var(--text)}
+
+  /* form */
+  .form-card{background:var(--bg2);border:1px solid var(--line);padding:40px;position:relative}
+  .form-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent)}
+  .form-card > .mono{margin-bottom:10px}
+  .form-card h2{margin-top:0}
+  .form-card > p.sub{color:var(--muted);font-size:.92rem;margin-bottom:30px}
+
+  .form-group{margin-bottom:22px}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  label{display:block;font:600 .75rem "JetBrains Mono",monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+  input,textarea,select{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:2px;padding:13px 16px;color:var(--text);font-family:"DM Sans",sans-serif;font-size:.95rem;outline:none;transition:border-color .15s;appearance:none}
+  input:focus,textarea:focus,select:focus{border-color:var(--blue-lt)}
+  input::placeholder,textarea::placeholder{color:var(--muted)}
+  textarea{resize:vertical;min-height:130px}
+  select{cursor:pointer}
+  :root[data-theme="light"] select option{background:#fff;color:#0E1630}
+  :root:not([data-theme="light"]) select option{background:#111A33;color:#E8EEFF}
+
+  .submit-btn{width:100%;margin-top:6px}
+  .form-note{font-size:.78rem;color:var(--muted);text-align:center;margin-top:16px}
+
+  /* success state */
+  .success-state{display:none;text-align:center;padding:24px 0}
+  .success-icon{width:48px;height:48px;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--gold-text)}
+  .success-icon svg{width:22px;height:22px}
+  .success-state h2{font-size:1.25rem}
+  .success-state p{color:var(--muted);font-size:.92rem;max-width:34ch;margin:0 auto}
+
+  footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted);font-size:.9rem}
+  .foot{display:grid;grid-template-columns:1fr auto 1fr;gap:20px;align-items:center}
+  .foot > :first-child{justify-self:start}
+  .foot > :last-child{justify-self:end}
+  .foot .tagline{justify-self:center;text-align:center}
+  .tagline{font:200 1.1rem "Josefin Sans",sans-serif;letter-spacing:.12em;text-transform:lowercase;color:var(--blue-lt)}
+
+  @media (max-width:860px){
+    .nav nav a:not(.btn){display:none}
+    .nav nav{gap:14px}
+    .contact-wrap{grid-template-columns:1fr;gap:48px}
+    .form-row{grid-template-columns:1fr}
+    .form-card{padding:28px 24px}
+    section{padding:64px 0}
+    .foot{grid-template-columns:1fr;justify-items:center;text-align:center;gap:14px}
+    .foot > :first-child,.foot > :last-child{justify-self:center}
+  }
+  @media (max-width:420px){ .wrap{padding:0 16px} .mark span{display:none} }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="mark" href="index.html" aria-label="Nastasja Terry home">
+      <img src="images/architect-mark.svg" width="34" height="34" alt="">
+      <span>nastasja terry</span>
+    </a>
+    <nav>
+      <a href="index.html#about">About</a>
+      <a href="index.html#speaking">Speaking</a>
+      <a href="index.html#work">Work</a>
+      <button class="theme-toggle" type="button" id="themeToggle" aria-label="Switch to light mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <a class="btn btn-gold" href="#form">Book me</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+<section>
+  <div class="wrap contact-wrap">
+
+    <!-- LEFT -->
+    <div>
+      <p class="mono">Let's talk</p>
+      <h1>The right move starts with a real conversation.</h1>
+      <p class="lede">Tell me about your audience, your team, or where your organization stands with AI, and I'll come back to you within two business days.</p>
+
+      <p class="intent-label">What brings you here?</p>
+      <div class="intent-list" id="intentList">
+        <button class="intent-item" type="button" data-intent="speaking" onclick="selectIntent(this)">
+          <span class="intent-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-7-7 18-2-8-8-2z"/></svg>
+          </span>
+          <span class="intent-text"><h3>Book me to speak</h3><p>A keynote, panel or fireside for your conference, team or association.</p></span>
+        </button>
+        <button class="intent-item" type="button" data-intent="workshop" onclick="selectIntent(this)">
+          <span class="intent-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2"/></svg>
+          </span>
+          <span class="intent-text"><h3>TIGER Framework&trade; workshop</h3><p>A hands-on session that takes your team from "we should use AI" to working use cases they own.</p></span>
+        </button>
+        <button class="intent-item" type="button" data-intent="assessment" onclick="selectIntent(this)">
+          <span class="intent-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </span>
+          <span class="intent-text"><h3>AI readiness assessment</h3><p>A clear, written answer on where AI fits your organization &mdash; and where it shouldn't, through The Architect.</p></span>
+        </button>
+        <button class="intent-item" type="button" data-intent="other" onclick="selectIntent(this)">
+          <span class="intent-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+          </span>
+          <span class="intent-text"><h3>Something else</h3><p>Press, partnerships, SheForge, or anything that doesn't fit neatly above.</p></span>
+        </button>
+      </div>
+
+      <div class="direct-contact">
+        <p>Prefer to reach out directly?</p>
+        <a href="mailto:nastasja@sheforge.ai">nastasja@sheforge.ai</a>
+      </div>
+
+      <div class="social-row">
+        <p>Find me here too</p>
+        <div class="social-links">
+          <!-- REPLACE: add your real LinkedIn profile URL -->
+          <a class="social-link" href="https://www.linkedin.com/" rel="noopener">LinkedIn</a>
+          <a class="social-link" href="https://sheforge.ai" rel="noopener">SheForge</a>
+        </div>
+      </div>
+
+      <p class="tagline-row">Stay Vigilant. Stay Visionary.</p>
+    </div>
+
+    <!-- RIGHT: FORM -->
+    <div id="form">
+      <div class="form-card">
+        <p class="mono">Send a message</p>
+        <h2>Tell me about your date, or your team.</h2>
+        <p class="sub">I'll respond within two business days.</p>
+
+        <form id="contactForm">
+          <div id="formContent">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="firstName">First name</label>
+                <input type="text" id="firstName" placeholder="Jane" required>
+              </div>
+              <div class="form-group">
+                <label for="lastName">Last name</label>
+                <input type="text" id="lastName" placeholder="Smith">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" placeholder="jane@yourorganization.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="reason">I'm reaching out about</label>
+              <select id="reason" required>
+                <option value="" disabled selected>Select one&hellip;</option>
+                <option value="speaking">Booking a speaking engagement</option>
+                <option value="workshop">A TIGER Framework workshop</option>
+                <option value="assessment">An AI readiness assessment</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Tell me more</label>
+              <textarea id="message" placeholder="Share your date, your audience, and what you're hoping to walk away with. The more context you give me, the more useful I can be." required></textarea>
+            </div>
+
+            <button class="btn btn-gold submit-btn" type="submit">Send message &rarr;</button>
+            <p class="form-note">No spam. Just a real response from a real person.</p>
+          </div>
+
+          <div class="success-state" id="successState">
+            <div class="success-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <h2>Message received.</h2>
+            <p>I'll be back in touch within two business days. Check your inbox &mdash; I don't ghost.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Nastasja Terry · San Diego, CA</span>
+    <span class="tagline">Stay Vigilant. Stay Visionary.</span>
+    <!-- REPLACE: add your real LinkedIn profile URL -->
+    <a href="https://www.linkedin.com/" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+  /* Theme toggle: saves the visitor's choice (falls back quietly if storage is blocked). */
+  (function(){
+    var r=document.documentElement,b=document.getElementById('themeToggle');
+    function sync(){b.setAttribute('aria-label',r.getAttribute('data-theme')==='dark'?'Switch to light mode':'Switch to dark mode')}
+    b.addEventListener('click',function(){
+      var n=r.getAttribute('data-theme')==='dark'?'light':'dark';
+      r.setAttribute('data-theme',n);
+      try{localStorage.setItem('nt-theme',n)}catch(e){}
+      sync();
+    });
+    sync();
+  })();
+
+  function selectIntent(el){
+    document.querySelectorAll('.intent-item').forEach(function(i){i.classList.remove('selected')});
+    el.classList.add('selected');
+    document.getElementById('reason').value = el.getAttribute('data-intent');
+  }
+
+  /* Submits to Web3Forms — same destination inbox as the SheForge contact form. */
+  document.getElementById('contactForm').addEventListener('submit', async function(e){
+    e.preventDefault();
+    var firstName = document.getElementById('firstName').value.trim();
+    var lastName = document.getElementById('lastName').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var reason = document.getElementById('reason').value;
+    var message = document.getElementById('message').value.trim();
+
+    var btn = document.querySelector('.submit-btn');
+    var originalLabel = btn.textContent;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    try{
+      var response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: 'a6e293f5-4b80-4af9-a980-26d95fb7feba',
+          name: firstName + ' ' + lastName,
+          email: email,
+          subject: 'nastasjaterry.com contact: ' + (reason || 'General inquiry'),
+          message: message,
+          reason: reason
+        })
+      });
+      var result = await response.json();
+      if (result.success){
+        document.getElementById('formContent').style.display = 'none';
+        document.getElementById('successState').style.display = 'block';
+      } else {
+        throw new Error(result.message || 'Submission failed');
+      }
+    } catch(err){
+      btn.textContent = originalLabel;
+      btn.disabled = false;
+      alert('Something went wrong. Please email nastasja@sheforge.ai directly.');
+    }
+  });
+</script>
+
+</body>
+</html>
