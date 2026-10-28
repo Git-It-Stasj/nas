@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Architect Assessment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=JetBrains+Mono:wght@400;500&family=Josefin+Sans:wght@200;300&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#070D1F; --bg2:#0D1530; --edge:#1F3A8A; --glow:rgba(61,127,255,.28);
+  --text:#E8EEFF; --muted:#6AA0FF; --blue:#3D7FFF; --gold:#F0C040; --goldtext:#F0C040;
+  --onGold:#070D1F; --track:rgba(106,160,255,.18);
+}
+@media (prefers-color-scheme: light){
+  :root:not([data-theme="dark"]){
+    --bg:#F4F7FF; --bg2:#FFFFFF; --edge:#0B1F5C; --glow:rgba(61,127,255,.18);
+    --text:#0B1230; --muted:#2A56C6; --blue:#3D7FFF; --goldtext:#7A5A00; --track:rgba(11,31,92,.14);
+  }
+}
+:root[data-theme="light"]{
+  --bg:#F4F7FF; --bg2:#FFFFFF; --edge:#0B1F5C; --glow:rgba(61,127,255,.18);
+  --text:#0B1230; --muted:#2A56C6; --blue:#3D7FFF; --goldtext:#7A5A00; --track:rgba(11,31,92,.14);
+}
+*{box-sizing:border-box;margin:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;font-size:17px;line-height:1.6;min-height:100vh}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;font-weight:700;line-height:1.15;letter-spacing:-.01em}
+.mono{font-family:'JetBrains Mono',monospace}
+.wrap{max-width:720px;margin:0 auto;padding:20px 16px 64px}
+header{display:flex;align-items:center;justify-content:space-between;padding:8px 0 28px}
+.brand{display:flex;align-items:center;gap:12px}
+.wordmark{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:22px;letter-spacing:.01em}
+.toggle{background:none;border:1px solid var(--edge);color:var(--muted);font:500 12px 'JetBrains Mono',monospace;padding:6px 10px;border-radius:999px;cursor:pointer}
+.eyebrow{font:500 12px 'JetBrains Mono',monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--goldtext);margin-bottom:14px}
+.card{background:var(--bg2);border:1px solid var(--edge);border-radius:16px;padding:26px 22px;box-shadow:0 0 28px var(--glow)}
+.card + .card{margin-top:18px}
+h1{font-size:clamp(30px,6vw,42px);margin-bottom:16px}
+h2{font-size:clamp(22px,4.4vw,28px);margin-bottom:14px}
+h3{font-size:19px;margin-bottom:8px}
+p + p{margin-top:12px}
+.lede{font-size:18px}
+.btn{display:inline-block;border:0;cursor:pointer;font:500 16px 'DM Sans',system-ui,sans-serif;padding:15px 28px;border-radius:999px;background:var(--gold);color:var(--onGold);text-decoration:none}
+.btn:hover{filter:brightness(1.07)}
+.btn:focus-visible,.opt:focus-visible,.toggle:focus-visible,.link:focus-visible,textarea:focus-visible,input:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.link{background:none;border:0;color:var(--muted);font:500 13px 'JetBrains Mono',monospace;cursor:pointer;text-decoration:underline;padding:8px 0}
+.notice{margin-top:22px;border-left:3px solid var(--blue);padding:4px 0 4px 14px;font-size:15px;color:var(--text);opacity:.9}
+.notice strong{font-weight:500}
+.meta{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font:500 12px 'JetBrains Mono',monospace;color:var(--muted)}
+.bar{height:4px;background:var(--track);border-radius:4px;margin-bottom:26px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--blue);transition:width .3s}
+.dim{font:500 12px 'JetBrains Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--goldtext);margin-bottom:10px}
+.q{font-size:clamp(21px,4.2vw,26px);margin-bottom:20px}
+.opts{display:grid;gap:10px}
+.opt{text-align:left;width:100%;background:transparent;color:var(--text);border:1px solid var(--edge);border-radius:12px;padding:14px 16px;font:400 16px/1.45 'DM Sans',sans-serif;cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--blue);background:rgba(61,127,255,.08)}
+.opt.sel{border-color:var(--blue);background:rgba(61,127,255,.16)}
+.nav{display:flex;justify-content:space-between;margin-top:18px}
+textarea,input[type=email]{width:100%;background:transparent;color:var(--text);border:1px solid var(--edge);border-radius:12px;padding:14px;font:400 16px/1.5 'DM Sans',sans-serif}
+textarea{min-height:130px;resize:vertical}
+.meta.gold{color:var(--goldtext)}
+.bar.gold i{background:var(--gold)}
+.check{display:flex;gap:12px;align-items:flex-start;margin-top:18px;cursor:pointer;font-size:16px;line-height:1.5}
+.check input{width:22px;height:22px;flex:none;margin-top:2px;accent-color:var(--gold);cursor:pointer}
+label{display:block;font-size:15px;margin-bottom:8px}
+.hide{display:none!important}
+/* results */
+.scorehead{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.ring{position:relative;width:132px;height:132px;flex:none}
+.ring svg{transform:rotate(-90deg)}
+.ring .num{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace}
+.ring .num b{font-size:34px;font-weight:500}
+.ring .num span{font-size:12px;color:var(--muted)}
+.level{font-size:clamp(26px,5vw,34px)}
+.ladder{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:22px 0 4px}
+.ladder div{border-top:3px solid var(--track);padding-top:8px;font:500 11px/1.3 'JetBrains Mono',monospace;color:var(--muted)}
+.ladder div.on{border-color:var(--gold);color:var(--goldtext)}
+.ladder div.done{border-color:var(--blue)}
+.bridge{border-left:3px solid var(--gold);padding-left:16px}
+.dimrow{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:center;margin:8px 0;font-size:14px}
+.dimrow .t{height:8px;background:var(--track);border-radius:8px;overflow:hidden}
+.dimrow .t i{display:block;height:100%;min-width:6px;background:var(--blue)}
+.dimrow.focus .t i{background:var(--gold)}
+.small{font-size:14px;opacity:.85}
+.actions{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:18px}
+@media(max-width:520px){.dimrow{grid-template-columns:1fr}.card{padding:22px 18px}}
+@media print{.toggle,.btn,.link,.actions{display:none}body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <svg width="34" height="34" viewBox="0 0 40 40" aria-hidden="true">
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F0C040"/><stop offset="1" stop-color="#F0C040" stop-opacity=".18"/></linearGradient></defs>
+        <g fill="none" stroke="url(#g)" stroke-width="1.6">
+          <rect x="2" y="2" width="36" height="36"/><rect x="8" y="8" width="24" height="24"/><rect x="13" y="13" width="14" height="14"/><rect x="17" y="17" width="6" height="6"/>
+        </g>
+        <g stroke="#F0C040" stroke-width="1" opacity=".4"><path d="M2 2L17 17M38 2L23 17M2 38L17 23M38 38L23 23"/></g>
+      </svg>
+      <span class="wordmark">the architect</span>
+    </div>
+    <button class="toggle" id="theme" aria-label="Toggle light or dark mode">light / dark</button>
+  </header>
+
+  <main id="app"></main>
+</div>
+
+<script>
+/* ===== CONFIG: fill these in before publishing ===== */
+const BOOKING_URL = "";   // your free booking link, e.g. "https://calendly.com/..." (leave empty until ready)
+const WEBHOOK_URL = "https://stasj-says.app.n8n.cloud/webhook/architect-assessment";   // n8n (or Airtable automation) webhook. Every completed assessment posts here; n8n writes the row to Airtable.
+                          // In n8n's Webhook node, set Allowed Origins to https://nastasjaterry.com so the browser may post.
+/* ==================================================== */
+
+const LEVELS = [
+  {name:"At the Gate",       range:[0,8],   blurb:"Most of how your business runs is still in your head, and you're the only one who can get it moving. That's not a flaw. It's the starting line, and it's the most common one."},
+  {name:"Taxiing",           range:[9,17],  blurb:"Some of it is written down, and things are moving. But it's patchy: the pieces that exist are hard to find, out of date, or only make sense to the person who wrote them."},
+  {name:"Cleared for Takeoff", range:[18,24], blurb:"Your key processes are written and people can find them. You've done the hard part. The gaps that are left are specific, and you can name them."},
+  {name:"In Flight",         range:[25,30], blurb:"Your business runs on what's written, not on who remembers. You're in a strong position to use AI on your terms, because there is something solid for it to work from."}
+];
+
+/* Each question: dimension, text, 4 options scored 0-3, and the opportunity it points to.
+   ice = hidden Impact x Confidence x Ease (each 1-3). Priority = gap (3 - answer) x ice. */
+const QS = [
+ {dim:"Dependency", q:"If you were out for two weeks, how would your team keep your most important work moving?",
+  o:["It wouldn't. It would stall until I got back.","They'd ping me or guess and hope.","They'd find some notes and piece it together.","They'd follow written steps and keep going."],
+  ice:[3,3,2], opp:{t:"Get the know-how out of your head",
+   why:"Right now, the way your work gets done lives in one person. Not what's written and where, but who knows. That's the single biggest thing standing between you and using AI well, because AI can only work from what it can be given.",
+   do:"Pick the one task you'd hate to explain twice. Hit record on your phone and talk it through start to finish, out loud. Don't polish it."}},
+ {dim:"Coverage", q:"How much of what you do repeatedly is written down?",
+  o:["Almost none. I just know how to do it.","A few things, mostly as quick notes.","Most of the main things, in some form.","Nearly all of it, in steps someone could follow."],
+  ice:[3,3,2], opp:{t:"Write down the work you repeat",
+   why:"Anything you do the same way more than a few times is a process, and a process that isn't written is a process only you can run. These are also the easiest places for AI to help later.",
+   do:"List the five things you did this week that you've done before. Circle the one that costs you the most time."}},
+ {dim:"Findability", q:"When someone has a question about how something is done, what do they do?",
+  o:["They ask me, or whoever has been here longest.","They ask around until someone remembers.","They check a folder or chat history and usually find it.","They look it up in one place, and it's there."],
+  ice:[2,3,3], opp:{t:"Ask what and where, not who",
+   why:"If the answer to 'how do we do this?' is a person's name, you have a single point of failure. The fix is a question your team can ask instead: what's written about this, and where?",
+   do:"Choose one home for process documents, even a single shared folder. Move or link the three you use most, and tell your team that's where to look first."}},
+ {dim:"Clarity", q:"Could a stranger follow your instructions for a key task and get it right the first time?",
+  o:["There aren't any instructions to follow.","They'd need me beside them the whole way.","Mostly, with a few questions for me.","Yes. They'd get it right without asking."],
+  ice:[3,2,2], opp:{t:"Pass the Intern Test",
+   why:"Written isn't the same as usable. The test is simple: hand it to someone who has never done the task. Where they get stuck is exactly where something is still only in your head.",
+   do:"Take one written process and give it to someone who has never done it. Watch where they stall and fix only those spots."}},
+ {dim:"Freshness", q:"When something changes (a tool, a price, a rule), what happens to the written version?",
+  o:["There is no written version to update.","It stays out of date until someone trips over it.","I update it when I remember.","Someone owns it and it gets updated when things change."],
+  ice:[2,2,3], opp:{t:"Give every process an owner",
+   why:"Old instructions are worse than none, because people trust them. A document without an owner quietly becomes wrong.",
+   do:"Put an owner's name and a 'last checked' date at the top of your three most-used processes."}},
+ {dim:"Customers", q:"When a new customer (or client, donor or member) comes in, how is it handled?",
+  o:["I handle it personally, differently each time.","There's a rough pattern, but it lives in my head.","There's a checklist or template for most of it.","There's a documented process and anyone can run it."],
+  ice:[3,3,3], opp:{t:"Document how someone new gets started with you",
+   why:"First contact is where you either build trust or lose it, and it's usually the most repeated process you have. Written down, it's both a quality fix and a time saver.",
+   do:"Write the steps from 'someone reaches out' to 'they're set up' as a numbered list of 8 lines or fewer. Rough is fine."}},
+ {dim:"Money", q:"How well is the process for getting paid or funded documented (invoicing, collections, donations, grant reporting)?",
+  o:["It's all in my head, or only one person does it.","Written in pieces, if at all.","Documented, but I'm the only one who checks it.","Documented, shared and double-checked."],
+  ice:[3,3,2], opp:{t:"Put the money steps on paper",
+   why:"The process that brings money in is the one you can least afford to have in one person's memory, and the one with the most deadlines attached.",
+   do:"Write down each step from 'work done' to 'money received' (or 'funds reported'), including who does it and by when."}},
+ {dim:"Onboarding", q:"When someone new joins (employee, volunteer or contractor), how do they learn the work?",
+  o:["They shadow me and absorb it over time.","I explain it as it comes up.","They get some documents plus a conversation.","They get a clear written path and can start on their own."],
+  ice:[2,3,2], opp:{t:"Build a first-week path for new people",
+   why:"How new people learn is a mirror: if they have to shadow you, the knowledge is in you. A written path doubles as a test of what you've captured.",
+   do:"List the five things a new person must know by Friday of week one, and where each is written."}},
+ {dim:"Tools", q:"Where does the information your business runs on actually live?",
+  o:["Scattered: my head, texts, email and notebooks.","A few places, with no clear system.","Mostly in a couple of tools we agreed on.","In one organized place everyone knows."],
+  ice:[2,2,2], opp:{t:"Pick one home for what you know",
+   why:"Information spread across texts, inboxes and notebooks can't be found, shared or handed to anyone, including AI.",
+   do:"Decide on one place for 'how we do things' and write its name on the first line of your next process."}},
+ {dim:"AI readiness", q:"Where are you with AI today?",
+  o:["Haven't tried it, and not sure where it would fit.","Tried it a little, but it doesn't know my business.","Use it sometimes for drafts or ideas.","Use it regularly, and I know what it should and shouldn't touch."],
+  ice:[2,2,3], opp:{t:"Decide where AI fits and where it doesn't",
+   why:"The goal isn't more AI. It's knowing which of your tasks AI can help with, which need a person, and what it must never see. That's a decision you make once and write down.",
+   do:"List three tasks you'd happily hand off and three you'd never hand off. That's the start of your guardrails."}}
+];
+
+const TOTAL = QS.length * 3; // 10 questions x 3 points = 30
+const $ = s => document.querySelector(s);
+const app = $("#app");
+const ans = new Array(QS.length).fill(null);
+let step = -1, oneProcess = "";
+const ref = new URLSearchParams(location.search).get("ref") || "";
+
+function esc(s){return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+
+function intro(){
+  app.innerHTML = `
+  <section class="card">
+    <div class="eyebrow">Free · about 5 minutes</div>
+    <h1>Should I add AI to my business?</h1>
+    <p class="lede">Ten questions about how your business or nonprofit actually runs. You'll get a readiness level, the one thing to fix first, and a next step. No jargon and no sales ambush.</p>
+    <p>This isn't about pushing AI on you or replacing anyone. It's about seeing where AI can fit, and whether what you know is written down well enough for it to help.</p>
+    <p class="notice"><strong>Before you start:</strong> this tool uses AI-style analysis. Please don't enter sensitive information anywhere in it: no Social Security numbers, credit card or bank numbers, passwords, or private details about clients, donors or staff.</p>
+    <div class="actions"><button class="btn" id="go">Start my free AI assessment</button></div>
+  </section>`;
+  $("#go").onclick = () => { step = 0; question(); };
+}
+
+function question(){
+  const Q = QS[step];
+  app.innerHTML = `
+  <section class="card">
+    <div class="meta"><span>Question ${step+1} of ${QS.length}</span><span>${esc(Q.dim)}</span></div>
+    <div class="bar"><i style="width:${(step/QS.length)*100}%"></i></div>
+    <h2 class="q">${esc(Q.q)}</h2>
+    <div class="opts" role="radiogroup" aria-label="Answers">
+      ${Q.o.map((t,i)=>`<button class="opt ${ans[step]===i?'sel':''}" role="radio" aria-checked="${ans[step]===i}" data-i="${i}">${esc(t)}</button>`).join("")}
+    </div>
+    <div class="nav">
+      <button class="link" id="back">${step===0?'Back to start':'Back'}</button>
+      <span class="small mono">${ans[step]!==null?'tap to change':''}</span>
+    </div>
+  </section>`;
+  document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{
+    ans[step] = +b.dataset.i;
+    b.classList.add("sel");
+    setTimeout(()=>{ step++; step < QS.length ? question() : oneThing(); }, 180);
+  });
+  $("#back").onclick = () => { if(step===0){ step=-1; intro(); } else { step--; question(); } };
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function oneThing(){
+  app.innerHTML = `
+  <section class="card">
+    <div class="meta"><span>Last step</span><span>Optional</span></div>
+    <div class="bar"><i style="width:100%"></i></div>
+    <h2>Name one thing you wish you didn't have to remember to do</h2>
+    <p>What's the one thing in your business that only you (or one person) really knows how to do? A line or two is plenty. It sharpens your results, and you can skip it.</p>
+    <p class="notice"><strong>Reminder:</strong> describe the process, not the people or the private details. No SSNs, card numbers, passwords, or client or donor information.</p>
+    <div style="margin-top:18px">
+      <label for="op">The one process</label>
+      <textarea id="op" maxlength="600" placeholder="e.g. How we onboard a new client, from first email to first invoice.">${esc(oneProcess)}</textarea>
+    </div>
+    <div class="actions"><button class="btn" id="see">See my score</button><button class="link" id="skip">Skip this</button><button class="link" id="back">Back</button></div>
+  </section>`;
+  $("#see").onclick = () => { oneProcess = $("#op").value.trim(); gate(); };
+  $("#skip").onclick = () => { oneProcess = ""; gate(); };
+  $("#back").onclick = () => { step = QS.length-1; question(); };
+}
+
+let userEmail = "", optIn = false, submitted = false;
+
+function gate(){
+  app.innerHTML = `
+  <section class="card">
+    <div class="meta gold"><span>Almost there</span><span>Your results are ready</span></div>
+    <div class="bar gold"><i style="width:100%"></i></div>
+    <h2>Where should I send your score?</h2>
+    <p>Enter your email to see your readiness level, your #1 thing to fix, and your next step. Your answers are saved with it so I can follow up if you ask me to.</p>
+    <form id="gf" novalidate style="margin-top:18px">
+      <label for="em">Email</label>
+      <input id="em" type="email" autocomplete="email" inputmode="email" placeholder="you@yourbusiness.com" value="${esc(userEmail)}" required>
+      <p class="small" id="err" role="alert" style="color:var(--goldtext);margin-top:8px;min-height:1.4em"></p>
+      <label class="check" for="oi">
+        <input id="oi" type="checkbox" ${optIn?'checked':''}>
+        <span>Yes, I'd like follow-up from The Architect: tips and next steps for getting my business ready for AI. I can unsubscribe any time.</span>
+      </label>
+      <p class="small" style="margin-top:12px">Leave the box unticked and I'll only use your email to save this result. No follow-up.</p>
+      <div class="actions"><button class="btn" id="show" type="submit">Show my score</button><button class="link" id="back" type="button">Back</button></div>
+    </form>
+  </section>`;
+  $("#back").onclick = () => { oneThing(); };
+  $("#em").oninput = () => { $("#err").textContent = ""; };
+  $("#gf").onsubmit = async e => {
+    e.preventDefault();
+    const email = $("#em").value.trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)){ $("#err").textContent = "Please enter a valid email address."; $("#em").focus(); return; }
+    userEmail = email; optIn = $("#oi").checked;
+    const btn = $("#show"); btn.disabled = true; btn.textContent = "Saving…";
+    await submitResult();   // never blocks the results: failures are swallowed
+    results();
+  };
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+async function submitResult(){
+  if(!WEBHOOK_URL || submitted) return;
+  const r = compute(), L = LEVELS[r.level], focusQ = r.focus!==null ? QS[r.focus] : null;
+  const payload = {
+    email: userEmail, followUpOptIn: optIn, ref, submittedAt: new Date().toISOString(),
+    score: r.total, outOf: TOTAL, level: L.name,
+    numberOneThing: focusQ ? focusQ.opp.t : "Keep it current",
+    nextStep: nextStep(r.level).t, oneProcess,
+    scores: Object.fromEntries(QS.map((Q,i)=>[Q.dim, ans[i]])),
+    answers: QS.map((Q,i)=>({dimension:Q.dim, score:ans[i], ice:Q.ice}))
+  };
+  try{
+    const ctl = new AbortController(); const t = setTimeout(()=>ctl.abort(), 6000);
+    const res = await fetch(WEBHOOK_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(payload),signal:ctl.signal});
+    clearTimeout(t);
+    if(res.ok) submitted = true;
+  }catch(e){ /* results still show */ }
+}
+
+function compute(){
+  const total = ans.reduce((a,v)=>a+v,0);
+  const level = LEVELS.findIndex(l => total >= l.range[0] && total <= l.range[1]);
+  let best = -1, bestScore = -1;
+  QS.forEach((Q,i)=>{
+    const gap = 3 - ans[i];
+    const score = gap * Q.ice[0]*Q.ice[1]*Q.ice[2];
+    if(score > bestScore){ bestScore = score; best = i; }
+  });
+  return {total, level, focus: bestScore > 0 ? best : null};
+}
+
+function nextStep(level){
+  return [
+   {t:"Record one process, out loud.", d:"You don't need a system yet. Take the process above, talk it through into your phone's voice recorder, and stop. That recording is your first written asset once it's typed up."},
+   {t:"Give one written process to a stranger.", d:"Hand it to someone who has never done the task and watch where they get stuck. Fix only those spots. That's the Intern Test, and it turns notes into something usable."},
+   {t:"Choose one tested process and put it through TIGER.", d:"You have something solid to work from. TIGER is the way to give AI the context, intent and guardrails it needs to help with it, on your terms."},
+   {t:"Add guardrails, then let AI take on a real task.", d:"Pick one well-documented process, decide what AI may and may not touch, and run it with a person signing off. Write down what you learn."}
+  ][level];
+}
+
+function results(){
+  const r = compute();
+  const L = LEVELS[r.level];
+  const C = 2*Math.PI*52;
+  const offset = C * (1 - r.total/TOTAL);
+  const focusQ = r.focus!==null ? QS[r.focus] : null;
+  const ns = nextStep(r.level);
+  const booking = BOOKING_URL
+    ? `<a class="btn" href="${esc(BOOKING_URL)}${BOOKING_URL.includes('?')?'&':'?'}ref=assessment" target="_blank" rel="noopener">Book a free call</a>`
+    : `<span class="small mono">Booking link coming soon.</span>`;
+
+  app.innerHTML = `
+  <section class="card">
+    <div class="eyebrow">Your result</div>
+    <div class="scorehead">
+      <div class="ring" role="img" aria-label="Score ${r.total} out of ${TOTAL}">
+        <svg width="132" height="132" viewBox="0 0 132 132"><circle cx="66" cy="66" r="52" fill="none" stroke="var(--track)" stroke-width="10"/>
+          <circle cx="66" cy="66" r="52" fill="none" stroke="var(--gold)" stroke-width="10" stroke-linecap="round" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${offset.toFixed(1)}"/></svg>
+        <div class="num"><b>${r.total}</b><span>of ${TOTAL}</span></div>
+      </div>
+      <div style="flex:1;min-width:220px"><h1 class="level">${esc(L.name)}</h1><p>${esc(L.blurb)}</p></div>
+    </div>
+    <div class="ladder" aria-hidden="true">${LEVELS.map((l,i)=>`<div class="${i===r.level?'on':(i<r.level?'done':'')}">${esc(l.name)}</div>`).join("")}</div>
+  </section>
+
+  ${focusQ ? `
+  <section class="card">
+    <div class="eyebrow">Your #1 thing to address</div>
+    <div class="bridge"><h2>${esc(focusQ.opp.t)}</h2><p>${esc(focusQ.opp.why)}</p></div>
+    <p style="margin-top:16px"><strong>This week:</strong> ${esc(focusQ.opp.do)}</p>
+    ${oneProcess ? `<p class="small" style="margin-top:14px">You named: <em>${esc(oneProcess)}</em>. That's a strong place to start.</p>` : ``}
+  </section>` : `
+  <section class="card">
+    <div class="eyebrow">Your #1 thing to address</div>
+    <div class="bridge"><h2>Keep it current</h2><p>You scored full marks across the board. The one thing left is keeping what's written accurate as things change.</p></div>
+  </section>`}
+
+  <section class="card">
+    <div class="eyebrow">Your next step</div>
+    <h2>${esc(ns.t)}</h2>
+    <p>${esc(ns.d)}</p>
+    <div class="actions">${booking}<button class="link" id="print">Save or print my results</button></div>
+    <p class="small" style="margin-top:14px">A free call is optional. If you'd rather work through this yourself, the step above is enough to move you forward.</p>
+  </section>
+
+  <section class="card">
+    <h3>How you scored</h3>
+    ${QS.map((Q,i)=>`<div class="dimrow ${i===r.focus?'focus':''}"><span>${esc(Q.dim)}</span><div class="t"><i style="width:${(ans[i]/3)*100}%"></i></div></div>`).join("")}
+    <p class="small" style="margin-top:12px">The gold bar is the area to address first. It's picked by how big the gap is and how much difference, how reliably and how easily closing it would make.</p>
+  </section>
+
+  <p class="small" style="margin-top:20px;text-align:center"><button class="link" id="again">Retake the assessment</button></p>`;
+
+  $("#print").onclick = () => window.print();
+  $("#again").onclick = () => { ans.fill(null); oneProcess=""; submitted=false; step=-1; intro(); window.scrollTo(0,0); };
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+/* theme toggle */
+$("#theme").onclick = () => {
+  const root = document.documentElement;
+  const cur = root.getAttribute("data-theme") ||
+    (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+  root.setAttribute("data-theme", cur === "dark" ? "light" : "dark");
+};
+
+intro();
+</script>
+</body>
+</html>
